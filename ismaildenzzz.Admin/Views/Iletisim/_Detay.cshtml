@@ -1,0 +1,54 @@
+﻿@model ismaildenzzz.Data.Model.Iletisim
+
+<!-- Modal -->
+<!-- Modal content-->
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Iletişim Detay</h4>
+</div>
+<div class="modal-body">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IP)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adsoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adsoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Konu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Konu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mesaj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mesaj)
+        </dd>
+    </dl>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Çıkış</button>
+</div>

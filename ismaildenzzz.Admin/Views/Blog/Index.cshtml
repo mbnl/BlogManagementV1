@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+    <h2>Index</h2><div style="float:right">@Html.ActionLink("Blog Ekle", "Ekle")</div>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Baslik</th>
+                <th>YuklenmeTarihi</th>
+                <th>Resim1</th>
+                <th>Resim</th>
+                <th>Aktif</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $("#myTable").DataTable({
+                "ajax": {
+                    "url": "/Blog/LoadData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "ID", "autoWidth": true },
+                    { "data": "Baslik", "autoWidth": true },
+                    { "data": "YuklenmeTarihi", "autoWidth": true },
+                    { "data": "Resim", "autoWidth": true },
+                    {
+                        "render": function (data, type, row) {
+                            return '<img width="75px" height="75px" src="' + row.Resim + '">';
+                        }
+                    },
+                    { "data": "Aktif", "autoWidth": true },
+                    {
+                        "render": function (data, type, row) {
+                            return '<button type="button"  onclick="BlogDetay(' + row.ID + ')" class="btn btn-primary btn-sm">Detay</button>&nbsp;&nbsp;<button type="button" onclick="BlogSil(' + row.ID + ')" class="btn btn-danger btn-sm">Sil</button>';
+                        }
+                    }
+                ],
+                "columnDefs": [
+            {
+                "targets": [3],
+                "visible": false,
+                "searchable": false
+            }
+                ]
+            });
+
+        });
+    </script>
+}

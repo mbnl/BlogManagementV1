@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-content">
+        </div>
+    </div>
+</div>
+<div id="page-wrapper">
+    <h2>Index</h2><div style="float:right">@Html.ActionLink("Yorum Ekle", "Ekle")</div>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ad Soyad</th>
+                <th>Mail</th>
+                <th>Onay Durumu</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $("#myTable").DataTable({
+                "ajax": {
+                    "url": "/Yorum/LoadData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "ID", "autoWidth": true },
+                    { "data": "AdSoyad", "autoWidth": true },
+                    { "data": "Mail", "autoWidth": true },
+                    { "data": "Onay", "autoWidth": true },
+                    {
+                        "render": function (data, type, row) {
+                            return '<button type="button"  onclick="YorumDetay(' + row.ID + ')" class="btn btn-primary btn-sm">Detay</button>&nbsp;&nbsp;<button type="button"  onclick="YorumOnayla(' + row.ID + ')" class="btn btn-primary btn-sm">Onayla</button>&nbsp;&nbsp;<button type="button" onclick="YorumSil(' + row.ID + ')" class="btn btn-danger btn-sm">Sil</button>';
+                        }
+                    }
+                ]
+            });
+
+        });
+    </script>
+}
+

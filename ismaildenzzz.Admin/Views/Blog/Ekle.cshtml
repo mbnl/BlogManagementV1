@@ -1,0 +1,112 @@
+﻿@model ismaildenzzz.Data.Model.Blog
+
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/ckeditor/ckeditor.js"></script>
+<div id="page-wrapper">
+    @using (Html.BeginForm("Ekle","Blog",FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Blog Ekle</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.Baslik, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Baslik, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Baslik, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.KisaAciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @*@Html.EditorFor(model => model.KisaAciklama, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.KisaAciklama, "", new { @class = "text-danger" })*@
+                    @Html.TextArea("KisaAciklama")
+                    <script type="text/javascript">
+                        var editor = CKEDITOR.instances['KisaAciklama'];
+                        if (editor) { editor.destroy(true); }
+                        CKEDITOR.replace('KisaAciklama', {
+                            enterMode: CKEDITOR.ENTER_BR,
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Icerik, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @*@Html.EditorFor(model => model.Açıklama, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Açıklama, "", new { @class = "text-danger" })*@
+                    @Html.TextArea("Icerik")
+                    <script type="text/javascript">
+                        var editor = CKEDITOR.instances['Icerik'];
+                        if (editor) { editor.destroy(true); }
+                        CKEDITOR.replace('Icerik', {
+                            enterMode: CKEDITOR.ENTER_BR,
+                        });
+                    </script>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.KategoriID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.DropDownListFor(model => model.KategoriID, new SelectList(ViewBag.Kategori, "ID", "KategoriAdi"), ("Seçiniz"), new { @class = "form-control", id = "ID" })
+                    @Html.ValidationMessageFor(model => model.KategoriID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Etikets, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.DropDownList("Etiketler" ,(MultiSelectList)ViewBag.Etiket,new { @class="form-control chosen-select" , multiple="multiple"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SeoAnahtarlari, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.SeoAnahtarlari, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SeoAnahtarlari, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SeoAciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.SeoAciklama, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SeoAciklama, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.Resim, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    <input type="file" name="file" accept="image/" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+
+
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
+

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="page-wrapper">
+    <h2>Index</h2><div style="float:right">@Html.ActionLink("Etiket Ekle", "Ekle")</div>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Etiket Adı</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $("#myTable").DataTable({
+                "ajax": {
+                    "url": "/Etiket/LoadData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "ID", "autoWidth": true },
+                    { "data": "EtiketAdi", "autoWidth": true },
+                    {
+                        "render": function (data, type, row) {
+                            return '<button type="button"  onclick="RouteEtiketDuzenle(' + row.ID + ')" class="btn btn-primary btn-sm">Düzenle</button>&nbsp;&nbsp;<button type="button" onclick="EtiketSil(' + row.ID + ')" class="btn btn-danger btn-sm">Sil</button>';
+                        }
+                    }
+                ]
+            });
+
+        });
+    </script>
+}
