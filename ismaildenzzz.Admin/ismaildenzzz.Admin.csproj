@@ -174,7 +174,6 @@
   <ItemGroup>
     <Content Include="ContentUser\css\blog-home.css" />
     <Content Include="ContentUser\css\blog-post.css" />
-    <Content Include="ContentUser\css\tagcloud.css" />
     <Content Include="ContentUser\js\GlobalUI.js" />
     <Content Include="ContentUser\vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="ContentUser\vendor\bootstrap\css\bootstrap-grid.min.css" />
