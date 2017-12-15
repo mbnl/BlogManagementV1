@@ -53,7 +53,7 @@ namespace ismaildenzzz.Admin.Controllers
                 SeoAciklama = x.SeoAciklama,
                 YuklenmeTarihi = x.YuklenmeTarihi.ToString(),
                 Aktif = x.Aktif,
-                Resim = x.Resim,
+                Resim = string.IsNullOrEmpty(x.Resim) ? "/Content/images/no-image.png" : x.Resim,
                 KategoriAdi = x.Kategori.KategoriAdi,
                 AdminAdi = x.Admin.Adsoyad,
                 EtiketList = x.Etikets
@@ -108,12 +108,13 @@ namespace ismaildenzzz.Admin.Controllers
                 string encodeFileName;
                 string path;
                 Random random = new Random();
-
                 if (ModelState.IsValid)
                 {
                     blog.YuklenmeTarihi = DateTime.Now;
                     blog.Aktif = true;
                     blog.AdminID = 1;
+                    blog.SeoLink = AboutFileUpload.SeoUrl(blog.Baslik);
+                    blog.Hit = 0;
                     if (file != null)
                     {
                         string extension = Path.GetExtension(file.FileName);
@@ -145,7 +146,7 @@ namespace ismaildenzzz.Admin.Controllers
                     }
                     _context.Blog.Add(blog);
                     _context.SaveChanges();
-                    return Json(new ResultJson { Success = true, Message = "Blog ekleme işleminiz başarılı." });
+                    return RedirectToAction("Index", "Blog");
                 }
             }
             catch (Exception ex)

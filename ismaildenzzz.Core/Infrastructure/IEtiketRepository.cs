@@ -9,5 +9,6 @@ namespace ismaildenzzz.Core.Infrastructure
 {
     public interface IEtiketRepository : IRepository<Etiket>
     {
+        int CountByObject(Etiket item);
     }
 }

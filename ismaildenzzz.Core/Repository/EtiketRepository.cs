@@ -20,6 +20,11 @@ namespace ismaildenzzz.Core.Repository
             return _context.Etiket.Count();
         }
 
+        public int CountByObject(Etiket item)
+        {
+            return _context.Blog.Where(x => x.Etikets.Any(i => i.ID == item.ID)).Count();
+        }
+
         public void Delete(int id)
         {
             var OurModel = GetByID(id);

@@ -82,6 +82,22 @@
     <Compile Include="Migrations\201711301405085_Test03.Designer.cs">
       <DependentUpon>201711301405085_Test03.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712071126286_Test10.cs" />
+    <Compile Include="Migrations\201712071126286_Test10.Designer.cs">
+      <DependentUpon>201712071126286_Test10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712071128270_Test101.cs" />
+    <Compile Include="Migrations\201712071128270_Test101.Designer.cs">
+      <DependentUpon>201712071128270_Test101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712071143446_Test102.cs" />
+    <Compile Include="Migrations\201712071143446_Test102.Designer.cs">
+      <DependentUpon>201712071143446_Test102.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712101814497_Test1999.cs" />
+    <Compile Include="Migrations\201712101814497_Test1999.Designer.cs">
+      <DependentUpon>201712101814497_Test1999.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\Blog.cs" />
@@ -122,6 +138,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711301405085_Test03.resx">
       <DependentUpon>201711301405085_Test03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712071126286_Test10.resx">
+      <DependentUpon>201712071126286_Test10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712071128270_Test101.resx">
+      <DependentUpon>201712071128270_Test101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712071143446_Test102.resx">
+      <DependentUpon>201712071143446_Test102.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712101814497_Test1999.resx">
+      <DependentUpon>201712101814497_Test1999.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -35,6 +36,11 @@ namespace ismaildenzzz.Data.Model
         public bool Aktif { get; set; }
         [Display(Name = "Resim Yolu :")]
         public string Resim { get; set; }
+        [Display(Name = "Seo Uyumlu Link :")]
+        public string SeoLink { get; set; }
+        [Display(Name = "Görüntülenme Sayısı :")]
+        [DefaultValue(0)]
+        public int? Hit { get; set; }
         public int KategoriID { get; set; }
         public int? AdminID { get; set; }
         public virtual Kategori Kategori { get; set; }

@@ -114,6 +114,14 @@
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -556,6 +564,22 @@
     <Content Include="ckeditor\skins\moono-lisa\images\refresh.png" />
     <Content Include="ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="ckeditor\styles.js" />
+    <Content Include="ContentUser\css\blog-home.css" />
+    <Content Include="ContentUser\css\blog-post.css" />
+    <Content Include="ContentUser\css\tagcloud.css" />
+    <Content Include="ContentUser\js\GlobalUI.js" />
+    <Content Include="ContentUser\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="ContentUser\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="ContentUser\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="ContentUser\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="ContentUser\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="ContentUser\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="ContentUser\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="ContentUser\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="ContentUser\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="ContentUser\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="ContentUser\vendor\jquery\jquery.js" />
+    <Content Include="ContentUser\vendor\jquery\jquery.min.js" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\chosen.css" />
@@ -581,6 +605,7 @@
     <Content Include="Content\images\6.png" />
     <Content Include="Content\images\7.png" />
     <Content Include="Content\images\lock.png" />
+    <Content Include="Content\images\no-image.png" />
     <Content Include="Content\images\search.png" />
     <Content Include="Content\images\tick.png" />
     <Content Include="Content\images\user.png" />
@@ -598,6 +623,7 @@
     <Content Include="Content\js\skycons.js" />
     <Content Include="Content\js\uisearch.js" />
     <Content Include="Content\js\wow.min.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\js\notify.min.js" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
@@ -608,11 +634,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Class\BootStrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\EtiketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IletisimController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\KategoriUIController.cs" />
+    <Compile Include="Controllers\PostUIController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\YorumController.cs" />
     <Compile Include="CustomFilter\LoginFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -621,6 +651,7 @@
     <Compile Include="Models\AboutFileUpload.cs" />
     <Compile Include="Models\BlogViewModel.cs" />
     <Compile Include="Models\ResultJson.cs" />
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\YorumViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -690,6 +721,14 @@
     <Content Include="Views\Yorum\_Detay.cshtml" />
     <Content Include="Views\Iletisim\Index.cshtml" />
     <Content Include="Views\Iletisim\_Detay.cshtml" />
+    <Content Include="Views\Shared\_LayoutUI.cshtml" />
+    <Content Include="Views\Shared\_NavMenuPartialUI.cshtml" />
+    <Content Include="Views\Shared\_RightMenuPartialUI.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\KategoriUI\Detay.cshtml" />
+    <Content Include="Views\PostUI\Detay.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\ismaildenzzz.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

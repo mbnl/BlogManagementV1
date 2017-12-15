@@ -17,6 +17,9 @@ namespace ismaildenzzz.Data.Model
         [MaxLength(100,ErrorMessage ="Etiket Adı 100 karakteri geçmemeli.")]
         [Required]
         public string EtiketAdi { get; set; }
+        [Display(Name = "Etiket Link :")]
+        [Required]
+        public string EtiketLink { get; set; }
         public ICollection<Blog> Blogs { get; set; }
     }
 }

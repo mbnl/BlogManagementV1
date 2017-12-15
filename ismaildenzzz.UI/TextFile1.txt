@@ -1,0 +1,377 @@
+﻿
+<div class="container">
+
+    <!-- TOP HEAD -->
+    <!-- Resume -->
+    <div class="row">
+        <style>
+            .kisaaciklama {
+                margin: 20px 0px;
+                width: 100%;
+                padding: 0px 20px;
+                text-align: center;
+                font-size: 2rem;
+                display: block;
+            }
+
+            .tags ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                .tags ul li {
+                    display: inline-block;
+                    margin: 1px;
+                    border: none;
+                    padding: 0;
+                    margin-bottom: 3px;
+                }
+
+            .categorylist {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .bor-btm ul > li {
+                margin-bottom: .5rem;
+            }
+
+            .post {
+                background: #fff;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+                margin-bottom: 2rem;
+                padding: 3rem;
+                width: 100%;
+            }
+
+                .post .post-info {
+                    font-size: 0.75rem;
+                    color: #666;
+                    text-transform: uppercase;
+                    line-height: 20px;
+                }
+
+                    .post .post-info span {
+                        margin-right: 0.5rem;
+                    }
+
+            .clearfix {
+                clear: both;
+            }
+        </style>
+        <!-- Sidebar -->
+        <div class="col-md-4">
+            <div class="side-bar">
+                <!-- Professional Details -->
+                <h5 class="tittle">Ismail DENİZ</h5>
+                <div class="kisaaciklama">
+                    Bilgisayar Mühendisi Adayı , Asp.NET MVC Tutkunu , Sakarya Üniversitesi Öğrencisi ,
+                    Genç bir Yazılım Danışmanı
+                </div>
+
+
+
+
+                <!-- Tags  -->
+                <h5 class="tittle">Taglar</h5>
+                <div class="tags bor-btm padding-25" style="border:none;">
+                    <ul>
+                        <li><a href="~/Content/#" class="smallest" title="Tag: .net">.net</a> </li>
+                        <li><a href="~/Content/#" class="smallest" title="Tag: .net framework">.net framework</a> </li>
+                        <li><a href="~/Content/#" class="smallest" title="Tag: .net framework 4.0">.net framework 4.0</a> </li>
+                    </ul>
+                </div>
+
+                <!-- Categories  -->
+                <h5 class="tittle">Kategoriler</h5>
+                <div class="categories bor-btm padding-25" style="border:none;">
+                    <ul id="categorylist">
+                        <li>
+                            <i class="fa fa-tags" aria-hidden="true"></i>
+                            </a>
+                            <a title="Category: .Net Core" href="~/Content//category/Net-Core">
+                                .Net Core
+                                <span>(2)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fa fa-tags" aria-hidden="true"></i>
+                            </a>
+                            <a title="Category: .Net Framework 4.0" href="~/Content//category/Net-Framework-40">
+                                .Net Framework 4.0
+                                <span>(15)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fa fa-tags" aria-hidden="true"></i>
+                            </a>
+                            <a title="Category: .Net Framework 4.5" href="~/Content//category/Net-Framework-45">
+                                .Net Framework 4.5
+                                <span>(7)</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                <!-- Social Profiles -->
+                <h5 class="tittle">Sosyal Medya</h5>
+                <div class="social-icon bor-btm padding-25">
+                    <ul>
+                        <li> <a href="~/Content/#"> <i class="fa fa-facebook"></i></a> </li>
+                        <li> <a href="~/Content/#"> <i class="fa fa-instagram"></i></a> </li>
+                        <li> <a href="~/Content/#"> <i class="fa fa-linkedin"></i></a> </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="col-md-8">
+
+            <div class="tab-content">
+
+                <!-- ABOUT ME -->
+                <div role="tabpanel" class="tab-pane fade in active" id="about-me">
+                    <div class="inside-sec">
+                        <section class="about-me padding-top-10">
+
+                            <!-- I’m Web Designer -->
+                            <h5 class="tittle">BLOG</h5>
+
+                            <!-- Article -->
+                            <article class="post" id="post6">
+                                <header>
+                                    <h6 class="tittle">
+                                        <a href="~/Content/#">.NET Core 2.0 ile Basit Bir Web API Geliştirmek</a>
+                                    </h6>
+                                    <div class="post-info clearfix">
+                                        <span class="post-date">04 Ekim 2017</span>
+                                        <span class="post-author"><a href="~/Content/#">İsmail DENİZ</a></span>
+                                        <span class="post-category"><a href="~/Content/#">Asp.Net Web API</a></span>
+                                    </div>
+                                </header>
+                                <section class="post-body text">
+                                    Bir süredir de .Net Core tarafına bakmak ve servis geliştirme noktasında neler yapılabileceğini incelemek istiyordum. İşlerden boşluk bulduğum bir sırada Web API nasıl yazılır araştırayım ve yaptığım örneği bloğuma ekleyeyim istedim. <a href="~/Content//post/net-core-2-0-ile-basit-bir-web-api-gelistirmek">[Dah fazla]</a>
+                                </section>
+                            </article>
+                            <article class="post" id="post6">
+                                <header>
+                                    <h6 class="tittle">
+                                        <a href="~/Content/#">.NET Core 2.0 ile Basit Bir Web API Geliştirmek</a>
+                                    </h6>
+                                    <div class="post-info clearfix">
+                                        <span class="post-date">04 Ekim 2017</span>
+                                        <span class="post-author"><a href="~/Content/#">Burak-Selim-Senyurt</a></span>
+                                        <span class="post-category"><a href="~/Content/#">Asp.Net Web API</a></span>
+                                    </div>
+                                </header>
+                                <section class="post-body text">
+                                    Bir süredir de .Net Core tarafına bakmak ve servis geliştirme noktasında neler yapılabileceğini incelemek istiyordum. İşlerden boşluk bulduğum bir sırada Web API nasıl yazılır araştırayım ve yaptığım örneği bloğuma ekleyeyim istedim. <a href="~/Content//post/net-core-2-0-ile-basit-bir-web-api-gelistirmek">[Dah fazla]</a>
+                                </section>
+                            </article>
+
+
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KisaAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeoAnahtarlari)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeoAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YuklenmeTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aktif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resim)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KisaAciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Icerik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeoAnahtarlari)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeoAciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YuklenmeTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aktif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resim)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+
+
+
+
+<div class="col-md-4">
+            <div class="side-bar">
+                <!-- Professional Details -->
+                <h5 class="tittle">Ismail DENİZ</h5>
+                <div class="kisaaciklama">
+                    Bilgisayar Mühendisi Adayı , Asp.NET MVC Tutkunu , Sakarya Üniversitesi Öğrencisi ,
+                    Genç bir Yazılım Danışmanı
+                </div>
+
+
+
+
+                <!-- Tags  -->
+                <h5 class="tittle">Taglar</h5>
+                <div class="tags bor-btm padding-25" style="border:none;">
+                    <ul>
+                        @foreach (var item in ViewBag.Etikets)
+                        {
+                            <li><a href="~/Content/#" class="smallest" title="Tag: @item.EtiketAdi">@item.EtiketAdi</a></li>
+                        }
+                        
+                    </ul>
+                </div>
+
+                <!-- Categories  -->
+                <h5 class="tittle">Kategoriler</h5>
+                <div class="categories bor-btm padding-25" style="border:none;">
+                    <ul id="categorylist">
+                        @foreach (var item in ViewBag.Kategoris)
+                        {
+                            <li>
+                                <i class="fa fa-tags" aria-hidden="true"></i>
+                                <a title="Category: .Net Core" href="~/Content/#">
+                                    @item.KategoriAdi
+                                    <span>(0)</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+
+                <!-- Social Profiles -->
+                <h5 class="tittle">Sosyal Medya</h5>
+                <div class="social-icon bor-btm padding-25">
+                    <ul>
+                        <li> <a href="~/Content/#"> <i class="fa fa-facebook"></i></a> </li>
+                        <li> <a href="~/Content/#"> <i class="fa fa-instagram"></i></a> </li>
+                        <li> <a href="~/Content/#"> <i class="fa fa-linkedin"></i></a> </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="col-md-8">
+
+            <div class="tab-content">
+
+                <!-- ABOUT ME -->
+                <div role="tabpanel" class="tab-pane fade in active" id="about-me">
+                    <div class="inside-sec">
+                        <section class="about-me padding-top-10">
+
+                            <!-- I’m Web Designer -->
+                            <h5 class="tittle">BLOG</h5>
+
+                            @foreach (var item in Model)
+                            {
+                                <!-- Article -->
+                                <article class="post" id="post6">
+                                    <header>
+                                        <h6 class="tittle">
+                                            <a href="~/Content/#">@Html.DisplayFor(modelItem => item.Baslik)</a>
+                                        </h6>
+                                        <div class="post-info clearfix">
+                                            <span class="post-date">04 Ekim 2017</span>
+                                            <span class="post-author"><a href="~/Content/#">@Html.DisplayFor(modelItem => item.Admin.Adsoyad)</a></span>
+                                            <span class="post-category"><a href="~/Content/#">@Html.DisplayFor(modelItem => item.Kategori.KategoriAdi)</a></span>
+                                        </div>
+                                    </header>
+                                    <section class="post-body text">
+                                        @Html.DisplayFor(modelItem => item.KisaAciklama)
+                                    </section>
+                                </article>
+                            }
+                            
+                            
+
+
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>

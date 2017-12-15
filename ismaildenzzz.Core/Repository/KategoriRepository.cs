@@ -19,6 +19,11 @@ namespace ismaildenzzz.Core.Repository
             return _context.Kategori.Count();
         }
 
+        public int CountByLink(string link)
+        {
+            return _context.Blog.Where(x => x.Kategori.KategoriAdi == link).Count();
+        }
+
         public void Delete(int id)
         {
             var OurModel = GetByID(id);

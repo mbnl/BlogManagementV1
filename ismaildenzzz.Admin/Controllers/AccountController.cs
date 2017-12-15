@@ -38,7 +38,7 @@ namespace ismaildenzzz.Admin.Controllers
                 if(AdminVarmi.Rol.RolAdi == "Admin")
                 {
                     Session["KullaniciAdi"] = AdminVarmi.KullaniciAdi;
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Admin");
                 }
                 ViewBag.Mesaj = "Yetkisiz admin";
                 return View();

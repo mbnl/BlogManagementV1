@@ -17,6 +17,9 @@ namespace ismaildenzzz.Data.Model
         [MaxLength(150,ErrorMessage ="Kategori Adı 150 karakteri geçmemeli.")]
         [Required]
         public string KategoriAdi { get; set; }
+        [Display(Name = "Kategori Link :")]
+        [Required]
+        public string KategoriLink { get; set; }
         public ICollection<Blog> Blogs { get; set; }
     }
 }

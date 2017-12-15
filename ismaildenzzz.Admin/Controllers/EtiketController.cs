@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace ismaildenzzz.Admin.Controllers
 {
@@ -26,6 +27,7 @@ namespace ismaildenzzz.Admin.Controllers
             return View();
         }
         #region VerileriYükle
+        [OutputCache(Duration = 3600, Location = OutputCacheLocation.Client, NoStore = true)]
         public ActionResult LoadData()
         {
             var data = _etiketRepository.GetAll();
@@ -63,6 +65,7 @@ namespace ismaildenzzz.Admin.Controllers
         [HttpPost]
         public JsonResult Duzenle(Etiket etiket)
         {
+            etiket.EtiketLink = AboutFileUpload.SeoUrl(etiket.EtiketAdi);
             if (ModelState.IsValid)
             {
                 _etiketRepository.Update(etiket);
@@ -83,6 +86,7 @@ namespace ismaildenzzz.Admin.Controllers
         [HttpPost]
         public ActionResult Ekle(Etiket etiket)
         {
+            etiket.EtiketLink = AboutFileUpload.SeoUrl(etiket.EtiketAdi);
             if (ModelState.IsValid)
             {
                 _etiketRepository.Insert(etiket);

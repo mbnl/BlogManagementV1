@@ -66,6 +66,7 @@ namespace ismaildenzzz.Admin.Controllers
         [HttpPost]
         public JsonResult Duzenle(Kategori kategori)
         {
+            kategori.KategoriLink = AboutFileUpload.SeoUrl(kategori.KategoriAdi);
             if (ModelState.IsValid)
             {
                 _kategoriRepository.Update(kategori);
@@ -86,6 +87,7 @@ namespace ismaildenzzz.Admin.Controllers
         [HttpPost]
         public ActionResult Ekle(Kategori kategori)
         {
+            kategori.KategoriLink = AboutFileUpload.SeoUrl(kategori.KategoriAdi);
             if (ModelState.IsValid)
             {
                 _kategoriRepository.Insert(kategori);

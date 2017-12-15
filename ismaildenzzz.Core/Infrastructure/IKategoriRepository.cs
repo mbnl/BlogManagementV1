@@ -9,5 +9,6 @@ namespace ismaildenzzz.Core.Infrastructure
 {
     public interface IKategoriRepository : IRepository<Kategori>
     {
+        int CountByLink(string link);
     }
 }
