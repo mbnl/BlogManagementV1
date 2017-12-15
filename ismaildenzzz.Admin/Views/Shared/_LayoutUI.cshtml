@@ -3,15 +3,37 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Blog Home - Start Bootstrap Template</title>
+    <meta name="title" content="" />
+    <meta name="description" content="@ViewBag.SeoDesc">
+    <meta name="keywords" content="@ViewBag.SeoKeys" />
+    <meta name="author" content="İsmail Deniz">
+    <meta name="owner" content="İsmail Deniz" />
+    <meta name="copyright" content="(c) 2017" />
+    <title>@ViewBag.Title</title>
     <!-- Bootstrap core CSS -->
     <link href="~/ContentUser/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.6/sweetalert2.min.css" rel="stylesheet" type="text/css" media="all">
     <!-- Custom styles for this template -->
     <link href="~/ContentUser/css/blog-home.css" rel="stylesheet">
     <link href="~/ContentUser/css/tagcloud.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .card {
+            border-radius: 0 !important;
+        }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82401166-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-82401166-1');
+    </script>
+
+
 </head>
 <body>
     @Html.Partial("_NavMenuPartialUI")
@@ -26,7 +48,7 @@
     </div>
     <!-- /.container -->
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-2 bg-dark">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; ismaildenzzz.com 2017</p>
         </div>
@@ -44,13 +66,7 @@
             $("ul.pagination li a").addClass("page-link");
         });
     </script>
-    @*<script>
-        $(function () {
-            $('a').on('click', function () {
-                return false;
-            });
-        });
-    </script>*@
-    <!-- JAVASCRIPT text alana tıklanınca temizler -->
+    <script src="~/scripts/tinymce/jquery.tinymce.js"></script>
+    <script src="~/scripts/tinymce/tiny_mce.js"></script>
 </body>
 </html>

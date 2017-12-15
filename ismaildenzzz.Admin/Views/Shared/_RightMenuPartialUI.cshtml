@@ -1,11 +1,48 @@
 ﻿
-@{ 
-    int i = 0,j = 0;
+@{
+    int i = 0, j = 0;
 }
 <style>
     .divResult {
         clear: both;
     }
+
+    ul.category li a {
+        color: black;
+        text-decoration: none;
+    }
+
+    ul.category li a:hover {
+        color: #3498db;
+    }
+
+    div.tags ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        div.tags ul li {
+            display: inline-block;
+            margin: 1px;
+            border: none;
+            padding: 0;
+            margin-bottom: 3px;
+        }
+
+            div.tags ul li a {
+                padding: .25rem 0.5rem;
+                background-color: #343a40;
+                color: #fff;
+                display: block;
+                text-decoration:none;
+            }
+
+                div.tags ul li a:hover {
+                    border: 1px solid #343a40;
+                    background: #fff;
+                    color: #343a40 !important;
+                }
 </style>
 
 <div class="col-md-4">
@@ -16,7 +53,7 @@
 
             <form method="get" action="/search">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="q" id="q" placeholder="Sana ne lazım...">
+                    <input type="text" class="form-control" name="q" id="q" placeholder="Arama...">
                     <span class="input-group-btn">
                         <button class="btn btn-secondary" id="srcButton" type="submit">Haydi!</button>
                     </span>
@@ -31,11 +68,11 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-6">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 category">
                         @foreach (var item in ViewBag.Kategoris)
                         {
                             <li>
-                                <a href="/kategori/@item.KategoriLink">@item.KategoriAdi - @ViewBag.KategoriPostSayilari[i]</a>
+                                <a href="/kategori/@item.KategoriLink"><i class="fa fa-tags" aria-hidden="true"></i> &nbsp; @item.KategoriAdi (@ViewBag.KategoriPostSayilari[i])</a>
                             </li>
                             i++;
                         }
@@ -53,18 +90,27 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="tagcloud03">
+                    <div class="tags">
                         <ul>
                             @foreach (var item in ViewBag.Etikets)
                             {
-                                <li>
-                                    <a href="/etiket/@item.EtiketLink">@item.EtiketAdi<span>@ViewBag.EtiketPostSayilari[j]</span></a>
-                                </li>
-                                j++;
+                                <li><a href="/etiket/@item.EtiketLink" class="smallest" title="Tag: @item.EtiketAdi">@item.EtiketAdi</a> </li>
                             }
-
                         </ul>
                     </div>
+
+                    @*<div class="tagcloud03">
+                            <ul>
+                                @foreach (var item in ViewBag.Etikets)
+                                {
+                                    <li>
+                                        <a href="/etiket/@item.EtiketLink">@item.EtiketAdi<span>@ViewBag.EtiketPostSayilari[j]</span></a>
+                                    </li>
+                                    j++;
+                                }
+
+                            </ul>
+                        </div>*@
                 </div>
             </div>
 

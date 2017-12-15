@@ -37,7 +37,7 @@ namespace ismaildenzzz.Admin.Controllers
         [HttpGet]
         public ActionResult Index(string page)
         {
-            int pageSize = 1;
+            int pageSize = 12;
             int pageIndex = 1;
             int n;
             bool isNumeric = int.TryParse(page, out n);

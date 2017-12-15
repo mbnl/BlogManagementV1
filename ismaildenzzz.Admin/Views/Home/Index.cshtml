@@ -1,21 +1,25 @@
-﻿@*@model IEnumerable<ismaildenzzz.Data.Model.Blog>*@
-
-@model PagedList.IPagedList<ismaildenzzz.Data.Model.Blog>
+﻿@model PagedList.IPagedList<ismaildenzzz.Data.Model.Blog>
 @using PagedList.Mvc;
 
-  
-
 @{
-    ViewBag.Title = "Blog";
+    ViewBag.Title = "İsmail Deniz";
+    ViewBag.SeoKeys = ".Net Core,.Net Framework 4.0,.Net Framework 4.5,.Net Temelleri, Ado.Net,Ado.net 2.0,Ado.Net Data Services,Ado.Net Sync Services,Algoritma,Design Patterns, Asp.Net,Asp.Net 2.0,Asp.Net 4.0,Asp.Net 4.5,Asp.Net Core, Asp.Net Web API,C#,C# 3.0,C# 4.0,C# 6.0,C# 7.0,Web Services,Asmx,SOAP,REST,Data Structures,Veri Yapıları, Algorithms,Eğitimler,Enterprise Library,Entity Framework,LINQ,LINQ to SQL,NoSQL,PostgreSQL,Predix,Predix Development,IOT,Parallel Programming,Threads,Python,T SQL,SQL,MSSQL,MYSQL,Tasarım Kalıpları(Design Patterns),Tasarım Prensipleri(Design Principles),Team Foundation Server,SVN,GIT,BitBucket,Bitcoin,Visual Studio,WCF,WCF 4.0,WCF 4.5,WCF Data Services,WCF Eco System,WCF Öğreniyorum,Asp.NET MVC Eğitimleri,Asp.NET MVC ile Angular JS,Windows Azure,Windows Forms,Windows Services,C#,C# Form Uygulamalari,C# Dersleri,TaskScheduler,WPF,XML,XML Web Services,JSON";
+    ViewBag.SeoDesc = "İsmail Deniz - Bilgisayar Mühendisi bir .Net,SharePoint,JavaScript geliştiricisi.JavaScript Frameworkleri ( Angular JS , React JS , Node JS , jQuery )  ve Microsoft Asp.NET / MVC / SharePoint / Core ile alakalı blog yazıları yazmayı seven bir kişilik.";
     Layout = "~/Views/Shared/_LayoutUI.cshtml";
 }
-
+<style>
+    div.card a{
+        text-decoration:none;
+    }
+    h4.card-title:hover {
+        color: #3498db;
+    }
+</style>
 <!-- Blog Entries Column -->
 <div class="col-md-8">
 
     <h1 class="my-4">
-        Blog Yazılarımız
-        <small>{ Make It Possible }</small>
+        Blog Yazılarım
     </h1>
 
 

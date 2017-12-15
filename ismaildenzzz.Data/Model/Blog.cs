@@ -22,6 +22,7 @@ namespace ismaildenzzz.Data.Model
         public string KisaAciklama { get; set; }
         [MinLength(50,ErrorMessage ="Açıklama 50 karakterden az olamaz.")]
         [Display(Name ="İçerik :")]
+        [UIHint("tinymce_jquery_full")]
         [Required]
         public string Icerik { get; set; }
         [MaxLength(200,ErrorMessage ="Seo Anahtarları 200 karakterden fazla olamaz.")]

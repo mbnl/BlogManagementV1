@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script src="~/ckeditor/ckeditor.js"></script>
 <div id="page-wrapper">
     @using (Html.BeginForm("Ekle","Blog",FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
@@ -31,13 +30,6 @@
                     @*@Html.EditorFor(model => model.KisaAciklama, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.KisaAciklama, "", new { @class = "text-danger" })*@
                     @Html.TextArea("KisaAciklama")
-                    <script type="text/javascript">
-                        var editor = CKEDITOR.instances['KisaAciklama'];
-                        if (editor) { editor.destroy(true); }
-                        CKEDITOR.replace('KisaAciklama', {
-                            enterMode: CKEDITOR.ENTER_BR,
-                        });
-                    </script>
                 </div>
             </div>
 
@@ -46,14 +38,11 @@
                 <div class="col-md-8">
                     @*@Html.EditorFor(model => model.Açıklama, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Açıklama, "", new { @class = "text-danger" })*@
-                    @Html.TextArea("Icerik")
+                    @Html.EditorFor(model => model.Icerik)
+                    @*@Html.TextArea("Icerik")
                     <script type="text/javascript">
-                        var editor = CKEDITOR.instances['Icerik'];
-                        if (editor) { editor.destroy(true); }
-                        CKEDITOR.replace('Icerik', {
-                            enterMode: CKEDITOR.ENTER_BR,
-                        });
-                    </script>
+                        CKEDITOR.replace('Icerik');
+                    </script>*@
                 </div>
             </div>
             

@@ -39,6 +39,7 @@ namespace ismaildenzzz.Admin.Controllers
             return View();
         }
         #region VerileriYükle
+        [ValidateInput(false)]
         public ActionResult LoadData() // Tamamen döndürülen obje ile alakalı bir sorun var.
         {
             //BlogViewModel objBlogVM;
@@ -115,6 +116,7 @@ namespace ismaildenzzz.Admin.Controllers
                     blog.AdminID = 1;
                     blog.SeoLink = AboutFileUpload.SeoUrl(blog.Baslik);
                     blog.Hit = 0;
+                    blog.Icerik = blog.Icerik.Trim().Replace(" ", string.Empty); ;
                     if (file != null)
                     {
                         string extension = Path.GetExtension(file.FileName);

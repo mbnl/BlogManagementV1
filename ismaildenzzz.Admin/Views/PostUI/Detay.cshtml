@@ -1,6 +1,8 @@
 ﻿@model ismaildenzzz.Data.Model.Blog
 @{
-    ViewBag.Title = "Detay";
+    ViewBag.Title = "İsmail Deniz | "+ Html.DisplayFor(x => x.Baslik);
+    ViewBag.SeoKeys = Html.DisplayFor(x => x.SeoAnahtarlari);
+    ViewBag.SeoDesc = Html.DisplayFor(x => x.SeoAciklama);
     Layout = "~/Views/Shared/_LayoutUI.cshtml";
 }
 <!-- Post Content Column -->
@@ -16,14 +18,15 @@
     <!-- Date/Time -->
     <p>Tarih : @Html.DisplayFor(x => x.YuklenmeTarihi) &nbsp; &nbsp; Okunma : @Html.DisplayFor(x => x.Hit)</p>
     <hr>
-    @if (Model.Resim != "")
+    @if (!string.IsNullOrEmpty(Model.Resim))
     {
          <!-- Preview Image -->
         <img class="img-fluid rounded" src="@Html.DisplayFor(x => x.Resim)" alt="" style="max-height:300px !important;">
+        <hr>
     }
-    <hr>
+    
     <!-- Post Content -->
-    <article class="post">
+    <article>
         @Html.DisplayFor(x => x.Icerik)
     </article>
 
