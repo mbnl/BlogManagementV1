@@ -26,8 +26,8 @@
     }
     
     <!-- Post Content -->
-    <article>
-        @Html.DisplayFor(x => x.Icerik)
+    <article class="post">
+        @Html.Raw(Model.Icerik)
     </article>
 
     <hr>
@@ -63,5 +63,4 @@
             </div>
         </div>
     }
-
 </div>

@@ -172,8 +172,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ContentUser\css\blog-home.css" />
+    <Content Include="ContentUser\css\blog-home.min.css" />
     <Content Include="ContentUser\css\blog-post.css" />
+    <Content Include="ContentUser\js\app.js" />
+    <Content Include="scripts\angular.min.js" />
     <Content Include="ContentUser\js\GlobalUI.js" />
     <Content Include="ContentUser\vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="ContentUser\vendor\bootstrap\css\bootstrap-grid.min.css" />
@@ -577,6 +579,8 @@
     <Content Include="Views\Search\Index.cshtml" />
     <None Include="Properties\PublishProfiles\ismaildenzzz.pubxml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_jquery_full.cshtml" />
+    <Content Include="Views\Home\Robots.cshtml" />
+    <Content Include="Views\Blog\Detay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

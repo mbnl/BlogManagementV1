@@ -13,18 +13,12 @@ namespace ismaildenzzz.Admin.Controllers
     public class SearchController : Controller
     {
         #region Search
-        private readonly IBlogRepository _blogRepository;
         private readonly IEtiketRepository _etiketRepository;
         private readonly IKategoriRepository _kategoriRepository;
-        private readonly IYorumRepository _yorumRepository;
-        private readonly BlogContext _context = new BlogContext();
-
-        public SearchController(IBlogRepository blogRepository, IEtiketRepository etiketRepository, IKategoriRepository kategoriRepository, IYorumRepository yorumRepository)
+        public SearchController(IEtiketRepository etiketRepository, IKategoriRepository kategoriRepository)
         {
-            _blogRepository = blogRepository;
             _etiketRepository = etiketRepository;
             _kategoriRepository = kategoriRepository;
-            _yorumRepository = yorumRepository;
         }
         #endregion
 
@@ -63,12 +57,7 @@ namespace ismaildenzzz.Admin.Controllers
 
             return View(viewModel);
         }
-
-        //public async Task<ViewResult> Search(string q)
-        //{
-            
-        //}
-
+        
         private List<Task> GetSeachResult(string search, SearchModel model)
         {
             //NorthContext dbContext = new NorthContext();

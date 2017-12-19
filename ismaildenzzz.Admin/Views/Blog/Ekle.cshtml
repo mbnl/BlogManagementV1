@@ -27,9 +27,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.KisaAciklama, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-8">
-                    @*@Html.EditorFor(model => model.KisaAciklama, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.KisaAciklama, "", new { @class = "text-danger" })*@
-                    @Html.TextArea("KisaAciklama")
+                    @Html.TextArea("KisaAciklama",htmlAttributes : new { @style = "width:100%; height:200px; max-width:100%;"})
                 </div>
             </div>
 
@@ -38,11 +36,8 @@
                 <div class="col-md-8">
                     @*@Html.EditorFor(model => model.Açıklama, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Açıklama, "", new { @class = "text-danger" })*@
-                    @Html.EditorFor(model => model.Icerik)
-                    @*@Html.TextArea("Icerik")
-                    <script type="text/javascript">
-                        CKEDITOR.replace('Icerik');
-                    </script>*@
+                    @*@Html.EditorFor(model => model.Icerik,new { htmlAttributes = new { @style = "width:100%;" } })*@
+                    @Html.TextAreaFor(model => model.Icerik, htmlAttributes: new { @style = "width:100%; height:200px; max-width:100%;" })
                 </div>
             </div>
             

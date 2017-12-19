@@ -19,6 +19,7 @@ namespace ismaildenzzz.Admin
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute("Robots.txt", "robots.txt", new { controller = "Home", action = "Robots" });
         }
     }
 }

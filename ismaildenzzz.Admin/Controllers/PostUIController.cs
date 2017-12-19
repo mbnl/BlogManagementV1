@@ -17,7 +17,6 @@ namespace ismaildenzzz.Admin.Controllers
         private readonly IEtiketRepository _etiketRepository;
         private readonly IKategoriRepository _kategoriRepository;
         private readonly IYorumRepository _yorumRepository;
-        private readonly BlogContext _context = new BlogContext();
 
         public PostUIController(IBlogRepository blogRepository, IEtiketRepository etiketRepository, IKategoriRepository kategoriRepository, IYorumRepository yorumRepository)
         {
@@ -57,6 +56,13 @@ namespace ismaildenzzz.Admin.Controllers
             ViewBag.Yorums = _yorumRepository.GetMany(x => x.Blog.SeoLink == SeoLink);
             Blog blogModel = _blogRepository.Get(x => x.SeoLink == SeoLink);
             return View(blogModel);
+        }
+        [HttpPost]
+        public JsonResult LoadData(string SeoLink)
+        {
+            Blog blogModel = _blogRepository.Get(x => x.SeoLink == SeoLink);
+            var Icerik = blogModel.Icerik;
+            return Json(Icerik);
         }
     }
 }

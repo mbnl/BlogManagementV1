@@ -49,7 +49,7 @@ namespace ismaildenzzz.Admin.Controllers
                 ID = x.ID,
                 Baslik = x.Baslik,
                 KisaAciklama = x.KisaAciklama,
-                Icerik = x.Icerik,
+                Icerik = x.Icerik.Trim().Replace(" ", string.Empty),
                 SeoAnahtarlari = x.SeoAnahtarlari,
                 SeoAciklama = x.SeoAciklama,
                 YuklenmeTarihi = x.YuklenmeTarihi.ToString(),
@@ -116,7 +116,7 @@ namespace ismaildenzzz.Admin.Controllers
                     blog.AdminID = 1;
                     blog.SeoLink = AboutFileUpload.SeoUrl(blog.Baslik);
                     blog.Hit = 0;
-                    blog.Icerik = blog.Icerik.Trim().Replace(" ", string.Empty); ;
+                    blog.Icerik = blog.Icerik.Trim().Replace(" ", string.Empty);
                     if (file != null)
                     {
                         string extension = Path.GetExtension(file.FileName);
@@ -166,6 +166,12 @@ namespace ismaildenzzz.Admin.Controllers
             ViewBag.Kategori = KategoriList;
         }
         #endregion
+
+        public ActionResult Detay(int id)
+        {
+            Blog objBlog = _blogRepository.GetByID(id);
+            return View(objBlog);
+        }
         #region SetEtiketListesi
         public void SetEtiketListele(object etiket = null)
         {

@@ -22,15 +22,12 @@ namespace ismaildenzzz.Admin.Controllers
         private readonly IBlogRepository _blogRepository;
         private readonly IEtiketRepository _etiketRepository;
         private readonly IKategoriRepository _kategoriRepository;
-        private readonly IYorumRepository _yorumRepository;
-        private readonly BlogContext _context = new BlogContext();
 
-        public HomeController(IBlogRepository blogRepository, IEtiketRepository etiketRepository, IKategoriRepository kategoriRepository,IYorumRepository yorumRepository)
+        public HomeController(IBlogRepository blogRepository, IEtiketRepository etiketRepository, IKategoriRepository kategoriRepository)
         {
             _blogRepository = blogRepository;
             _etiketRepository = etiketRepository;
             _kategoriRepository = kategoriRepository;
-            _yorumRepository = yorumRepository;
         }
         #endregion
 
@@ -68,22 +65,11 @@ namespace ismaildenzzz.Admin.Controllers
             ViewBag.BirSayfadakiPostlar = blogList;
             return View(blogList);
         }
-
-       
-
-        public static class HtmlHelperExtensions
+        
+        public ActionResult Robots()
         {
-            public static string UppercaseFirst(string s)
-            {
-                if (string.IsNullOrEmpty(s))
-                {
-                    return string.Empty;
-                }
-                char[] a = s.ToCharArray();
-                a[0] = char.ToUpper(a[0]);
-                return new string(a);
-            }
+            Response.ContentType = "text/plain";
+            return View();
         }
-
     }
 }

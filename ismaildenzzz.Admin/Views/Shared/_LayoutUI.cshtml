@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,14 +14,13 @@
     <link href="~/ContentUser/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.6/sweetalert2.min.css" rel="stylesheet" type="text/css" media="all">
     <!-- Custom styles for this template -->
-    <link href="~/ContentUser/css/blog-home.css" rel="stylesheet">
+    <link href="~/ContentUser/css/blog-home.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .card {
             border-radius: 0 !important;
         }
     </style>
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82401166-1"></script>
     <script>
@@ -31,8 +30,10 @@
 
         gtag('config', 'UA-82401166-1');
     </script>
-
-
+    <script src="~/scripts/angular.min.js"></script>
+    <script src="~/ContentUser/vendor/jquery/jquery.min.js"></script>
+    
+    <script src="~/ContentUser/js/app.js"></script>
 </head>
 <body>
     @Html.Partial("_NavMenuPartialUI")
@@ -54,7 +55,6 @@
         <!-- /.container -->
     </footer>
     <!-- Bootstrap core JavaScript -->
-    <script src="~/ContentUser/vendor/jquery/jquery.min.js"></script>
     <script src="~/ContentUser/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/ContentUser/js/GlobalUI.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.6/sweetalert2.min.js"></script>

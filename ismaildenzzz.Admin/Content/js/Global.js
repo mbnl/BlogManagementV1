@@ -286,4 +286,6 @@ function BlogSil(id) {
         }
     })
 }
-
+function BlogDetay(id) {
+    window.location.href = "/Blog/Detay/" + id;
+}

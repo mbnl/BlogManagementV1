@@ -16,6 +16,7 @@ namespace ismaildenzzz.Admin
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BootStrapper.RunConfig();
+
         }
     }
 }

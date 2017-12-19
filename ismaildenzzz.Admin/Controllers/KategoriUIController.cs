@@ -19,15 +19,12 @@ namespace ismaildenzzz.Admin.Controllers
         private readonly IBlogRepository _blogRepository;
         private readonly IEtiketRepository _etiketRepository;
         private readonly IKategoriRepository _kategoriRepository;
-        private readonly IYorumRepository _yorumRepository;
-        private readonly BlogContext _context = new BlogContext();
 
         public KategoriUIController(IBlogRepository blogRepository, IEtiketRepository etiketRepository, IKategoriRepository kategoriRepository, IYorumRepository yorumRepository)
         {
             _blogRepository = blogRepository;
             _etiketRepository = etiketRepository;
             _kategoriRepository = kategoriRepository;
-            _yorumRepository = yorumRepository;
         }
         #endregion
         

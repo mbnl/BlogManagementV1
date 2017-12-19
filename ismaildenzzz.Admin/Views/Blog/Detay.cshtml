@@ -1,0 +1,115 @@
+﻿@model ismaildenzzz.Data.Model.Blog
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detay</h2>
+
+<div>
+    <h4>Blog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin.Adsoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin.Adsoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategori.KategoriAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KisaAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KisaAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Icerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeoAnahtarlari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeoAnahtarlari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeoAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeoAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YuklenmeTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YuklenmeTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aktif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aktif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeoLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeoLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hit)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
