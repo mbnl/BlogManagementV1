@@ -49,7 +49,7 @@ namespace ismaildenzzz.Admin.Controllers
                 ID = x.ID,
                 Baslik = x.Baslik,
                 KisaAciklama = x.KisaAciklama,
-                Icerik = x.Icerik.Trim().Replace(" ", string.Empty),
+                Icerik = x.Icerik,
                 SeoAnahtarlari = x.SeoAnahtarlari,
                 SeoAciklama = x.SeoAciklama,
                 YuklenmeTarihi = x.YuklenmeTarihi.ToString(),
@@ -116,7 +116,7 @@ namespace ismaildenzzz.Admin.Controllers
                     blog.AdminID = 1;
                     blog.SeoLink = AboutFileUpload.SeoUrl(blog.Baslik);
                     blog.Hit = 0;
-                    blog.Icerik = blog.Icerik.Trim().Replace(" ", string.Empty);
+                    //blog.Icerik = blog.Icerik.Trim().Replace(" ", string.Empty);
                     if (file != null)
                     {
                         string extension = Path.GetExtension(file.FileName);

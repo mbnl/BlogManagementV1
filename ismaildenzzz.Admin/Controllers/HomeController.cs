@@ -66,19 +66,6 @@ namespace ismaildenzzz.Admin.Controllers
             ViewBag.BirSayfadakiPostlar = blogList;
             return View(blogList);
         }
-
-        [Route("robots.txt", Name = "GetRobotsText"), OutputCache(Duration = 86400)]
-        public ContentResult RobotsText()
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-
-            stringBuilder.AppendLine("user-agent: *");
-            stringBuilder.AppendLine("disallow: /error/");
-            stringBuilder.AppendLine("allow: /error/foo");
-            stringBuilder.Append("sitemap: ");
-
-            return this.Content(stringBuilder.ToString(), "text/plain", Encoding.UTF8);
-        }
         
     }
 }
