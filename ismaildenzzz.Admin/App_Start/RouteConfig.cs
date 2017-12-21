@@ -13,13 +13,13 @@ namespace ismaildenzzz.Admin
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapMvcAttributeRoutes();
-
+            routes.MapRoute("Robots.txt", "robots.txt", new { controller = "Home", action = "Robots" });
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-            routes.MapRoute("Robots.txt", "robots.txt", new { controller = "Home", action = "Robots" });
+           
         }
     }
 }
