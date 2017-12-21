@@ -10,6 +10,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -65,11 +66,19 @@ namespace ismaildenzzz.Admin.Controllers
             ViewBag.BirSayfadakiPostlar = blogList;
             return View(blogList);
         }
-        
-        public ActionResult Robots()
+
+        [Route("robots.txt", Name = "GetRobotsText"), OutputCache(Duration = 86400)]
+        public ContentResult RobotsText()
         {
-            Response.ContentType = "text/plain";
-            return View();
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine("user-agent: *");
+            stringBuilder.AppendLine("disallow: /error/");
+            stringBuilder.AppendLine("allow: /error/foo");
+            stringBuilder.Append("sitemap: ");
+
+            return this.Content(stringBuilder.ToString(), "text/plain", Encoding.UTF8);
         }
+        
     }
 }
