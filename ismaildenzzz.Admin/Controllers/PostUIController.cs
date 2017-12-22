@@ -1,8 +1,10 @@
-﻿using ismaildenzzz.Core.Infrastructure;
+﻿using Facebook;
+using ismaildenzzz.Core.Infrastructure;
 using ismaildenzzz.Data.DataContext;
 using ismaildenzzz.Data.Model;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -64,5 +66,6 @@ namespace ismaildenzzz.Admin.Controllers
             var Icerik = blogModel.Icerik;
             return Json(Icerik);
         }
+        
     }
 }

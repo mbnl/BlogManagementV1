@@ -31,22 +31,22 @@ namespace ismaildenzzz.Core.Repository
 
         public Blog Get(Expression<Func<Blog, bool>> expresssion)
         {
-            return _context.Blog.FirstOrDefault(expresssion);
+            return _context.Blog.Include("Etikets").Include("Kategori").Include("Admin").FirstOrDefault(expresssion);
         }
 
         public IEnumerable<Blog> GetAll()
         {
-            return _context.Blog.ToList(); // Tüm adminler dönecek
+            return _context.Blog.Include("Etikets").Include("Kategori").Include("Admin").ToList(); // Tüm adminler dönecek
         }
 
         public Blog GetByID(int id)
         {
-            return _context.Blog.FirstOrDefault(x => x.ID == id);
+            return _context.Blog.Include("Etikets").Include("Kategori").Include("Admin").FirstOrDefault(x => x.ID == id);
         }
 
         public IQueryable<Blog> GetMany(Expression<Func<Blog, bool>> expresssion)
         {
-            return _context.Blog.Where(expresssion); //Birden fazla döneceği için Where kullandık.
+            return _context.Blog.Include("Etikets").Include("Kategori").Include("Admin").Where(expresssion); //Birden fazla döneceği için Where kullandık.
         }
 
         public void Insert(Blog obj)
