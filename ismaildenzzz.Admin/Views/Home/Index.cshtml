@@ -34,8 +34,10 @@
                 @*<a href="/Home/Blog/@item.SeoLink" class="btn btn-primary">Daha Fazla &rarr;</a>*@
             </div>
             <div class="card-footer text-muted" style="font-size: 14px;">
-                @item.YuklenmeTarihi
-                <a href="#">@item.Admin.Adsoyad</a>
+                Yayinlanma Tarihi : @item.YuklenmeTarihi &nbsp;
+                Yazar : <a href="/">@item.Admin.Adsoyad</a>&nbsp;
+                Okunma : @item.Hit &nbsp;
+                Kategori :<a href="/kategori/@item.Kategori.KategoriLink"> @item.Kategori.KategoriAdi</a>
             </div>
         </div>
     }
@@ -43,9 +45,3 @@
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page}))
 
 </div>
-
-
-@*
-    İP Adress sekmesinde en üstteki IP Adress enabled yapıldı , ayrıca IP10 da da enabled yes yapıldı ,89.43.78.74 de enabled yes yapıldı.
-    New rule olustruldu firewalldan 
-*@

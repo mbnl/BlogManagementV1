@@ -65,14 +65,17 @@ namespace ismaildenzzz.Admin.Controllers
         [HttpPost]
         public JsonResult Duzenle(Etiket etiket)
         {
-            etiket.EtiketLink = AboutFileUpload.SeoUrl(etiket.EtiketAdi);
-            if (ModelState.IsValid)
+            try
             {
+                etiket.EtiketLink = AboutFileUpload.SeoUrl(etiket.EtiketAdi);
                 _etiketRepository.Update(etiket);
                 _etiketRepository.Save();
                 return Json(new ResultJson { Success = true, Message = "Etiket düzenleme işleminiz başarılı." });
             }
-            return Json(new ResultJson { Success = true, Message = "Düzenleme işlemi sırasında bir hata oluştu." });
+            catch(Exception ex)
+            {
+                return Json(new ResultJson { Success = true, Message = "Düzenleme işlemi sırasında bir hata oluştu." });
+            }
         }
         #endregion
         #region EtiketEkle
@@ -86,14 +89,18 @@ namespace ismaildenzzz.Admin.Controllers
         [HttpPost]
         public ActionResult Ekle(Etiket etiket)
         {
-            etiket.EtiketLink = AboutFileUpload.SeoUrl(etiket.EtiketAdi);
-            if (ModelState.IsValid)
+            try
             {
+                etiket.EtiketLink = AboutFileUpload.SeoUrl(etiket.EtiketAdi);
                 _etiketRepository.Insert(etiket);
                 _etiketRepository.Save();
                 return Json(new ResultJson { Success = true, Message = "Etiket ekleme işleminiz başarılı." });
             }
-            return Json(new ResultJson { Success = true, Message = "Ekleme işlemi sırasında bir hata oluştu." });
+            catch(Exception ex)
+            {
+                return Json(new ResultJson { Success = true, Message = "Ekleme işlemi sırasında bir hata oluştu." });
+            }
+            
         }
         #endregion
     }

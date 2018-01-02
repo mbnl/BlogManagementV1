@@ -681,6 +681,7 @@
     <Content Include="ContentUser\css\blog-home.min.css" />
     <Content Include="ContentUser\css\blog-post.css" />
     <Content Include="ContentUser\css\bootstrap-social.css" />
+    <Content Include="ContentUser\css\hoverEffect.css" />
     <Content Include="ContentUser\js\app.js" />
     <Content Include="scripts\angular.min.js" />
     <Content Include="ContentUser\js\GlobalUI.js" />
@@ -782,7 +783,7 @@
     <Compile Include="Controllers\EtiketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IletisimController.cs" />
-    <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\KategoriAdminController.cs" />
     <Compile Include="Controllers\KategoriUIController.cs" />
     <Compile Include="Controllers\PostUIController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -839,9 +840,9 @@
     <Content Include="Views\Etiket\Index.cshtml" />
     <Content Include="Views\Etiket\Duzenle.cshtml" />
     <Content Include="Views\Etiket\Ekle.cshtml" />
-    <Content Include="Views\Kategori\Duzenle.cshtml" />
-    <Content Include="Views\Kategori\Ekle.cshtml" />
-    <Content Include="Views\Kategori\Index.cshtml" />
+    <Content Include="Views\KategoriAdmin\Duzenle.cshtml" />
+    <Content Include="Views\KategoriAdmin\Ekle.cshtml" />
+    <Content Include="Views\KategoriAdmin\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\Ekle.cshtml" />
     <Content Include="Views\Yorum\Index.cshtml" />

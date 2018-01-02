@@ -10,11 +10,11 @@ using System.Web.Mvc;
 
 namespace ismaildenzzz.Admin.Controllers
 {
-    public class KategoriController : Controller
+    public class KategoriAdminController : Controller
     {
         #region Kategori
         private readonly IKategoriRepository _kategoriRepository;
-        public KategoriController(IKategoriRepository kategoriRepository)
+        public KategoriAdminController(IKategoriRepository kategoriRepository)
         {
             _kategoriRepository = kategoriRepository;
         }
@@ -67,13 +67,16 @@ namespace ismaildenzzz.Admin.Controllers
         public JsonResult Duzenle(Kategori kategori)
         {
             kategori.KategoriLink = AboutFileUpload.SeoUrl(kategori.KategoriAdi);
-            if (ModelState.IsValid)
+            try
             {
                 _kategoriRepository.Update(kategori);
                 _kategoriRepository.Save();
                 return Json(new ResultJson { Success = true, Message = "Kategori düzenleme işleminiz başarılı." });
             }
-            return Json(new ResultJson { Success = true, Message = "Düzenleme işlemi sırasında bir hata oluştu." });
+            catch(Exception ex)
+            {
+                return Json(new ResultJson { Success = true, Message = "Düzenleme işlemi sırasında bir hata oluştu." });
+            }
         }
         #endregion
         #region KategoriEkle
@@ -87,14 +90,18 @@ namespace ismaildenzzz.Admin.Controllers
         [HttpPost]
         public ActionResult Ekle(Kategori kategori)
         {
-            kategori.KategoriLink = AboutFileUpload.SeoUrl(kategori.KategoriAdi);
-            if (ModelState.IsValid)
+            try
             {
+                kategori.KategoriLink = AboutFileUpload.SeoUrl(kategori.KategoriAdi);
                 _kategoriRepository.Insert(kategori);
                 _kategoriRepository.Save();
                 return Json(new ResultJson { Success = true, Message = "Kategori ekleme işleminiz başarılı." });
             }
-            return Json(new ResultJson { Success = true, Message = "Kategori işlemi sırasında bir hata oluştu." });
+            catch(Exception ex)
+            {
+                return Json(new ResultJson { Success = true, Message = "Kategori işlemi sırasında bir hata oluştu." });
+            }
+            
         }
         #endregion
     }

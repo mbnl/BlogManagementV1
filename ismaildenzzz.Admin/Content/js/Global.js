@@ -5,7 +5,7 @@ function RouteEtiketDuzenle(id) {
     return false;
 }
 function RouteKategoriDuzenle(id) {
-    window.location.href = '/Kategori/Duzenle/' + id;
+    window.location.href = '/KategoriAdmin/Duzenle/' + id;
     //window.location.href = '@Url.Action("LogOut", "Home", new { ID = '+id+'})';
     return false;
 }
@@ -159,7 +159,7 @@ function EtiketEkle() {
 
 function KategoriSil(id) {
     $.ajax({
-        url: '/Kategori/Sil/' + id,
+        url: '/KategoriAdmin/Sil/' + id,
         type: "POST",
         datatype: "json",
         success: function (response) {
@@ -179,7 +179,7 @@ function KategoriEkle() {
     Kategori = new Object();
     Kategori.KategoriAdi = $("#KategoriAdi").val();
     $.ajax({
-        url: "/Kategori/Ekle",
+        url: "/KategoriAdmin/Ekle",
         data: Kategori,
         type: "POST",
         datatype: "Json",
@@ -202,7 +202,7 @@ function KategoriDuzenle() {
     Kategori.ID = $("#ID").val();
     Kategori.KategoriAdi = $("#KategoriAdi").val();
     $.ajax({
-        url: "/Kategori/Duzenle",
+        url: "/KategoriAdmin/Duzenle",
         data: Kategori,
         type: "POST",
         datatype: "Json",
@@ -220,29 +220,6 @@ function KategoriDuzenle() {
     });
 }
 
-
-function BlogEkle() {
-    Kategori = new Object();
-    Kategori.KategoriAdi = $("#KategoriAdi").val();
-    $.ajax({
-        url: "/Kategori/Ekle",
-        data: Kategori,
-        type: "POST",
-        datatype: "Json",
-        success: function (response) {
-            if (response.Success) {
-                bootbox.alert(response.Message, function () {
-                    location.reload();
-                })
-            }
-            else {
-                bootbox.alert(response.Message, function () {
-                    // istediğim birsey yazabiliriz.
-                })
-            }
-        }
-    });
-}
 function BlogSil(id) {
     $.ajax({
         url: '/Blog/Sil/' + id,
