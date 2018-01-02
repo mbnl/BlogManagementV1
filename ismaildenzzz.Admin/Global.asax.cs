@@ -1,4 +1,5 @@
-﻿using ismaildenzzz.Admin.Class;
+﻿using ismaildenzzz.Admin.App_Start;
+using ismaildenzzz.Admin.Class;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace ismaildenzzz.Admin
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BootStrapper.RunConfig();
-
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

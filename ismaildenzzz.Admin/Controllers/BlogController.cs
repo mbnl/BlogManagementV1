@@ -5,6 +5,7 @@ using ismaildenzzz.Data.DataContext;
 using ismaildenzzz.Data.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -167,11 +168,60 @@ namespace ismaildenzzz.Admin.Controllers
         }
         #endregion
 
+        #region BlogDetay
         public ActionResult Detay(int id)
         {
             Blog objBlog = _blogRepository.GetByID(id);
             return View(objBlog);
         }
+        #endregion
+
+        #region BlogDüzenle
+        [LoginFilter]
+        [HttpGet]
+        public ActionResult Duzenle(int ID)
+        {
+            Blog objblog = _blogRepository.GetByID(ID);
+            if (objblog == null)
+            {
+                return RedirectToAction("Index", "Blog");
+            }
+
+            return View(objblog);
+        }
+        [LoginFilter]
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Duzenle(Blog blog)
+        {
+            Blog objblog = _blogRepository.GetByID(blog.ID);
+            
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    objblog.Baslik = blog.Baslik;
+                    objblog.KisaAciklama = blog.KisaAciklama;
+                    objblog.Icerik = blog.Icerik;
+                    objblog.SeoAciklama = blog.SeoAciklama;
+                    objblog.SeoAnahtarlari = blog.SeoAnahtarlari;
+                    objblog.SeoLink = AboutFileUpload.SeoUrl(blog.Baslik);
+                   
+                    _blogRepository.Update(objblog);
+                    _blogRepository.Save();
+
+                    return RedirectToAction("Index", "Blog");
+                }
+                catch(Exception ex)
+                {
+                    return Json(new ResultJson { Success = true, Message = "Düzenleme işlemi sırasında bir hata oluştu." });
+                }
+               
+            }
+            return Json(new ResultJson { Success = true, Message = "Blog düzenleme işleminiz başarısız." });
+        }
+        #endregion
+
         #region SetEtiketListesi
         public void SetEtiketListele(object etiket = null)
         {

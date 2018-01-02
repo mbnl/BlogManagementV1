@@ -9,11 +9,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace ismaildenzzz.Admin.Controllers
 {
@@ -44,7 +47,7 @@ namespace ismaildenzzz.Admin.Controllers
                 if (!string.IsNullOrEmpty(page))
                     pageIndex = Convert.ToInt32(page);
             }
-           
+
 
             #region ORTAK
             ViewBag.Etikets = _etiketRepository.GetAll();
@@ -62,10 +65,81 @@ namespace ismaildenzzz.Admin.Controllers
             ViewBag.KategoriPostSayilari = countByCategoryID;
             ViewBag.EtiketPostSayilari = countByEtiketID;
             #endregion
-            IPagedList<Blog> blogList = _blogRepository.GetAll().ToPagedList(pageIndex,pageSize);
+            IPagedList<Blog> blogList = _blogRepository.GetAll().ToPagedList(pageIndex, pageSize);
             ViewBag.BirSayfadakiPostlar = blogList;
             return View(blogList);
         }
-        
+
+        [Route("sitemap.xml")]
+        public ActionResult SitemapXml()
+        {
+            var sitemapNodes = GetSitemapNodes(this.Url);
+            string xml = GetSitemapDocument(sitemapNodes);
+            return this.Content(xml, MediaTypeNames.Text.Xml, Encoding.UTF8);
+        }
+
+        public IReadOnlyCollection<Models.SiteMapNode> GetSitemapNodes(UrlHelper urlHelper)
+        {
+            List<Models.SiteMapNode> nodes = new List<Models.SiteMapNode>();
+
+            nodes.Add(
+                new Models.SiteMapNode()
+                {
+                    Url = "http://ismaildenzzz.com/iletisim",
+                    Priority = 1
+                });
+            nodes.Add(
+               new Models.SiteMapNode()
+               {
+                   Url = "http://ismaildenzzz.com/hakkimda",
+                   Priority = 0.9
+               });
+            nodes.Add(
+               new Models.SiteMapNode()
+               {
+                   Url = "http://ismaildenzzz.com/",
+                   Priority = 0.9
+               });
+
+            foreach (string postLink in _blogRepository.GetAll().Select(x => x.SeoLink))
+            {
+                nodes.Add(
+                   new Models.SiteMapNode()
+                   {
+                       Url = "http://ismaildenzzz.com/"+postLink,
+                       Frequency = SitemapFrequency.Daily,
+                       Priority = 0.8
+                   });
+            }
+
+            return nodes;
+        }
+
+        public string GetSitemapDocument(IEnumerable<Models.SiteMapNode> sitemapNodes)
+        {
+            XNamespace xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9";
+            XElement root = new XElement(xmlns + "urlset");
+
+            foreach (Models.SiteMapNode sitemapNode in sitemapNodes)
+            {
+                XElement urlElement = new XElement(
+                    xmlns + "url",
+                    new XElement(xmlns + "loc", Uri.EscapeUriString(sitemapNode.Url)),
+                    sitemapNode.LastModified == null ? null : new XElement(
+                        xmlns + "lastmod",
+                        sitemapNode.LastModified.Value.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:sszzz")),
+                    sitemapNode.Frequency == null ? null : new XElement(
+                        xmlns + "changefreq",
+                        sitemapNode.Frequency.Value.ToString().ToLowerInvariant()),
+                    sitemapNode.Priority == null ? null : new XElement(
+                        xmlns + "priority",
+                        sitemapNode.Priority.Value.ToString("F1", CultureInfo.InvariantCulture)));
+                root.Add(urlElement);
+            }
+
+            XDocument document = new XDocument(root);
+            return document.ToString();
+        }
+
     }
 }

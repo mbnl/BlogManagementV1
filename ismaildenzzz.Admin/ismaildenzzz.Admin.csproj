@@ -768,9 +768,12 @@
     <None Include="scripts\jquery-1.4.4-vsdoc.js" />
     <Content Include="scripts\jquery-1.4.4.js" />
     <Content Include="scripts\jquery-1.4.4.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Class\BootStrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -792,6 +795,7 @@
     <Compile Include="Models\BlogViewModel.cs" />
     <Compile Include="Models\ResultJson.cs" />
     <Compile Include="Models\SearchModel.cs" />
+    <Compile Include="Models\SiteMapNode.cs" />
     <Compile Include="Models\YorumViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -854,6 +858,7 @@
     <None Include="Properties\PublishProfiles\ismaildenzzz.pubxml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_jquery_full.cshtml" />
     <Content Include="Views\Blog\Detay.cshtml" />
+    <Content Include="Views\Blog\Duzenle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

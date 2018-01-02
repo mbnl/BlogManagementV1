@@ -243,30 +243,6 @@ function BlogEkle() {
         }
     });
 }
-function BlogDuzenle() {
-    debugger;
-    Kategori = new Object();
-    Kategori.ID = $("#ID").val();
-    Kategori.KategoriAdi = $("#KategoriAdi").val();
-    $.ajax({
-        url: "/Kategori/Duzenle",
-        data: Kategori,
-        type: "POST",
-        datatype: "Json",
-        success: function (response) {
-            if (response.Success) {
-                bootbox.alert(response.Message, function () {
-                    location.reload();
-                })
-            }
-            else {
-                bootbox.alert(response.Message, function () {
-                    // istediğim birsey yazabiliriz.
-                })
-            }
-        }
-    });
-}
 function BlogSil(id) {
     $.ajax({
         url: '/Blog/Sil/' + id,
@@ -288,4 +264,7 @@ function BlogSil(id) {
 }
 function BlogDetay(id) {
     window.location.href = "/Blog/Detay/" + id;
+}
+function BlogDuzenle(id) {
+    window.location.href = "/Blog/Duzenle/" + id;
 }

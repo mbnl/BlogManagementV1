@@ -61,6 +61,7 @@ namespace ismaildenzzz.Core.Repository
 
         public void Update(Blog obj)
         {
+            _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
             _context.Blog.AddOrUpdate(obj);  // AddOrUpdate için System.Data.Entity.Migrations eklenmesi gerekmekte.
         }
     }
