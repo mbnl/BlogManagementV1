@@ -11,9 +11,12 @@ namespace ismaildenzzz.Admin.App_Start
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.UseCdn = true;
+            BundleTable.EnableOptimizations = false;
+
             bundles.Add(new ScriptBundle("~/bundles/LayoutUI_UstJS")
                 .Include("~/ContentUser/vendor/jquery/jquery.min.js")
                 .Include("~/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/LayoutUI_AltJS", @"//cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.6/sweetalert2.min.js")
                .Include("~/ContentUser/vendor/bootstrap/js/bootstrap.bundle.min.js")
                .Include("~/ContentUser/js/GlobalUI.js"));
@@ -22,7 +25,8 @@ namespace ismaildenzzz.Admin.App_Start
                .Include("~/ContentUser/vendor/bootstrap/css/bootstrap.min.css")
                .Include("~/ContentUser/css/blog-home.min.css")
                .Include("~/ContentUser/css/bootstrap-social.css")
-               .Include("~/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css"));
+               .Include("~/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css")
+               .Include("~/ContentUser/css/hoverEffect.css"));
 
         }
     }

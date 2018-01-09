@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ismaildenzzz.Admin", "ismaildenzzz.Admin\ismaildenzzz.Admin.csproj", "{25688913-C0E9-4B7C-BC25-8A3D88C91877}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ismaildenzzz.UI", "ismaildenzzz.UI\ismaildenzzz.UI.csproj", "{9260EA83-B7B9-42D3-ADC3-11F79E8EDB63}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ismaildenzzz.Core", "ismaildenzzz.Core\ismaildenzzz.Core.csproj", "{28DC777D-239D-405F-8240-943E899A92DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ismaildenzzz.Data", "ismaildenzzz.Data\ismaildenzzz.Data.csproj", "{08D36CE6-B9B5-4857-91E2-5EAA07BC95B0}"
@@ -21,10 +19,6 @@ Global
 		{25688913-C0E9-4B7C-BC25-8A3D88C91877}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25688913-C0E9-4B7C-BC25-8A3D88C91877}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25688913-C0E9-4B7C-BC25-8A3D88C91877}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9260EA83-B7B9-42D3-ADC3-11F79E8EDB63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9260EA83-B7B9-42D3-ADC3-11F79E8EDB63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9260EA83-B7B9-42D3-ADC3-11F79E8EDB63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9260EA83-B7B9-42D3-ADC3-11F79E8EDB63}.Release|Any CPU.Build.0 = Release|Any CPU
 		{28DC777D-239D-405F-8240-943E899A92DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{28DC777D-239D-405F-8240-943E899A92DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28DC777D-239D-405F-8240-943E899A92DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
