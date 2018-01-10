@@ -14,11 +14,13 @@ namespace ismaildenzzz.Admin.Controllers
     {
         #region Search
         private readonly IEtiketRepository _etiketRepository;
+        private readonly IBlogRepository _blogRepository;
         private readonly IKategoriRepository _kategoriRepository;
-        public SearchController(IEtiketRepository etiketRepository, IKategoriRepository kategoriRepository)
+        public SearchController(IEtiketRepository etiketRepository, IKategoriRepository kategoriRepository,IBlogRepository blogRepository)
         {
             _etiketRepository = etiketRepository;
             _kategoriRepository = kategoriRepository;
+            _blogRepository = blogRepository;
         }
         #endregion
 
@@ -42,17 +44,11 @@ namespace ismaildenzzz.Admin.Controllers
             ViewBag.Etikets = _etiketRepository.GetAll();
             ViewBag.Kategoris = _kategoriRepository.GetAll();
             List<int> countByCategoryID = new List<int>();
-            List<int> countByEtiketID = new List<int>();
             foreach (var item in _kategoriRepository.GetAll())
             {
-                countByCategoryID.Add(_kategoriRepository.CountByLink(item.KategoriLink));
-            }
-            foreach (var item in _etiketRepository.GetAll())
-            {
-                countByEtiketID.Add(_etiketRepository.CountByObject(item));
+                countByCategoryID.Add(_blogRepository.CountByKategori(item.ID));
             }
             ViewBag.KategoriPostSayilari = countByCategoryID;
-            ViewBag.EtiketPostSayilari = countByEtiketID;
             #endregion
 
             return View(viewModel);

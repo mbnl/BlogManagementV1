@@ -20,6 +20,16 @@ namespace ismaildenzzz.Core.Repository
             return _context.Blog.Count();
         }
 
+        public int CountByEtiket(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CountByKategori(int id)
+        {
+            return _context.Blog.Where(x => x.KategoriID == id).Count();
+        }
+
         public void Delete(int id)
         {
             var Blog = GetByID(id);

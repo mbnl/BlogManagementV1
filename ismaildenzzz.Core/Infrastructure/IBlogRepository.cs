@@ -9,5 +9,7 @@ namespace ismaildenzzz.Core.Infrastructure
 {
     public interface IBlogRepository : IRepository<Blog>
     {
+        int CountByKategori(int id);
+        int CountByEtiket(int id);
     }
 }

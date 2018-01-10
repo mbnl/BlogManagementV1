@@ -53,17 +53,11 @@ namespace ismaildenzzz.Admin.Controllers
             ViewBag.Etikets = _etiketRepository.GetAll();
             ViewBag.Kategoris = _kategoriRepository.GetAll();
             List<int> countByCategoryID = new List<int>();
-            List<int> countByEtiketID = new List<int>();
             foreach (var item in _kategoriRepository.GetAll())
             {
-                countByCategoryID.Add(_kategoriRepository.CountByLink(item.KategoriLink));
-            }
-            foreach (var item in _etiketRepository.GetAll())
-            {
-                countByEtiketID.Add(_etiketRepository.CountByObject(item));
+                countByCategoryID.Add(_blogRepository.CountByKategori(item.ID));
             }
             ViewBag.KategoriPostSayilari = countByCategoryID;
-            ViewBag.EtiketPostSayilari = countByEtiketID;
             #endregion
             IPagedList<Blog> blogList = _blogRepository.GetAll().ToPagedList(pageIndex, pageSize);
             ViewBag.BirSayfadakiPostlar = blogList;
@@ -106,7 +100,29 @@ namespace ismaildenzzz.Admin.Controllers
                 nodes.Add(
                    new Models.SiteMapNode()
                    {
-                       Url = "http://ismaildenzzz.com/"+postLink,
+                       Url = "http://ismaildenzzz.com/post/"+postLink,
+                       Frequency = SitemapFrequency.Daily,
+                       Priority = 0.8
+                   });
+            }
+
+            foreach (string etiketLink in _etiketRepository.GetAll().Select(x => x.EtiketLink))
+            {
+                nodes.Add(
+                   new Models.SiteMapNode()
+                   {
+                       Url = "http://ismaildenzzz.com/etiket/" + etiketLink,
+                       Frequency = SitemapFrequency.Daily,
+                       Priority = 0.8
+                   });
+            }
+
+            foreach (string kategoriLink in _kategoriRepository.GetAll().Select(x => x.KategoriLink))
+            {
+                nodes.Add(
+                   new Models.SiteMapNode()
+                   {
+                       Url = "http://ismaildenzzz.com/kategori/" + kategoriLink,
                        Frequency = SitemapFrequency.Daily,
                        Priority = 0.8
                    });

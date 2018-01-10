@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<ismaildenzzz.Data.Model.Blog>
 @{
-    ViewBag.Title = "İsmail Deniz | "+ ViewBag.Kategori.KategoriAdi;
+    ViewBag.Title = "İsmail Deniz | "+ ViewBag.KategoriAdi;
     ViewBag.SeoKeys = ".Net Core,.Net Framework, Ado.Net,Algoritma,Design Patterns, Asp.Net,Asp.Net Core, Asp.Net Web API,C#,Web Services,Asmx,SOAP,REST,Data Structures,Veri Yapıları,Entity Framework,Dapper";
-    ViewBag.SeoDesc = "İsmail Deniz - "+ ViewBag.Kategori.KategoriAdi+" - Bilgisayar Mühendisi.JavaScript Frameworkleri ve Asp.NET / Asp.NET MVC / Asp.NET Core ile alakalı blog yazıları yazmayı seven birisi.";
+    ViewBag.SeoDesc = "İsmail Deniz - "+ ViewBag.KategoriAdi + " - Bilgisayar Mühendisi.JavaScript Frameworkleri ve Asp.NET / Asp.NET MVC / Asp.NET Core ile alakalı blog yazıları yazmayı seven birisi.";
     Layout = "~/Views/Shared/_LayoutUI.cshtml";
 }
 <!-- Blog Entries Column -->
 <div class="col-md-8">
 
     <h1 class="my-4">
-        @ViewBag.Kategori.KategoriAdi 
+        @ViewBag.KategoriAdi
     </h1>
 
 

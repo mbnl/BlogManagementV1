@@ -48,7 +48,6 @@ namespace ismaildenzzz.Admin.Controllers
             {
                 return Json(new ResultJson { Success = true, Message = "Blog işlemi sırasında bir hata oluştu." });
             }
-            return Json(new ResultJson { Success = true, Message = "Blog ekleme işleminiz başarısız." });
         }
         #endregion
 

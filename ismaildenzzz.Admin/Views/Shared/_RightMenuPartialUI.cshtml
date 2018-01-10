@@ -30,8 +30,9 @@
                     <ul class="list-unstyled category">
                         @foreach (var item in ViewBag.Kategoris)
                         {
+
                             <li class="hasEffect">
-                                <i class="fa fa-tags" aria-hidden="true"></i> <a href="/kategori/@item.KategoriLink" class="effect-underline">&nbsp; @item.KategoriAdi (@ViewBag.KategoriPostSayilari[i])</a>
+                                <i class="fa fa-tags" aria-hidden="true"></i> <a href="/kategori/@item.KategoriLink" class="effect-underline">&nbsp; @item.KategoriAdi ( @ViewBag.KategoriPostSayilari[i] )</a>
                             </li>
                             i++;
                         }

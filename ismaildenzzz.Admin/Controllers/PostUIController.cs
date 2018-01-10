@@ -43,17 +43,11 @@ namespace ismaildenzzz.Admin.Controllers
             ViewBag.Etikets = _etiketRepository.GetAll();
             ViewBag.Kategoris = _kategoriRepository.GetAll();
             List<int> countByCategoryID = new List<int>();
-            List<int> countByEtiketID = new List<int>();
             foreach (var item in _kategoriRepository.GetAll())
             {
-                countByCategoryID.Add(_kategoriRepository.CountByLink(item.KategoriLink));
-            }
-            foreach (var item in _etiketRepository.GetAll())
-            {
-                countByEtiketID.Add(_etiketRepository.CountByObject(item));
+                countByCategoryID.Add(_blogRepository.CountByKategori(item.ID));
             }
             ViewBag.KategoriPostSayilari = countByCategoryID;
-            ViewBag.EtiketPostSayilari = countByEtiketID;
             #endregion
             ViewBag.Yorums = _yorumRepository.GetMany(x => x.Blog.SeoLink == SeoLink);
             Blog blogModel = _blogRepository.Get(x => x.SeoLink == SeoLink);
