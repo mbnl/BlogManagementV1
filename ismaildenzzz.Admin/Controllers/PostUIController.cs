@@ -51,6 +51,9 @@ namespace ismaildenzzz.Admin.Controllers
             #endregion
             ViewBag.Yorums = _yorumRepository.GetMany(x => x.Blog.SeoLink == SeoLink);
             Blog blogModel = _blogRepository.Get(x => x.SeoLink == SeoLink);
+            blogModel.Hit++;
+            _blogRepository.Update(blogModel);
+            _blogRepository.Save();
             return View(blogModel);
         }
         [HttpPost]

@@ -32,6 +32,7 @@ namespace ismaildenzzz.Data.Model
         [Display(Name = "Seo Aciklama :")]
         public string SeoAciklama { get; set; }
         [Display(Name = "Yuklenme Tarihi :")]
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime YuklenmeTarihi { get; set; }
         [Display(Name ="Aktif :")]
         public bool Aktif { get; set; }

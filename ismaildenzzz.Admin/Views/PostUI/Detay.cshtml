@@ -34,11 +34,16 @@
     <article class="post">
         @Html.Raw(HttpUtility.HtmlDecode(Model.Icerik))
     </article>
-    <div class="social-buttons">
-        <a class="btn btn-social-icon btn-facebook">
+
+    @*<div class="fb-share-button" data-href="@( "https://ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink))" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fismaildenzzz.com%2F&amp;src=sdkpreparse">Paylaş</a></div>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ismaildenzzz.com" data-text="Test Bir Deneme" data-via="ismaildenzzz" data-count="vertical">Tweet</a>*@
+
+
+    <div class="social-buttons " data-href="@( "https://ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink))" data-layout="button" data-size="large" data-mobile-iframe="true">
+        <a class="btn btn-social-icon btn-facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fismaildenzzz.com%2F&amp;src=sdkpreparse">
             <span class="fa fa-facebook"></span>
         </a>
-        <a class="btn btn-social-icon btn-twitter">
+        <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/share" data-url="http://ismaildenzzz.com" data-text="Test Bir Deneme" data-via="ismaildenzzz" data-count="vertical">
             <span class="fa fa-twitter"></span>
         </a>
         <a class="btn btn-social-icon btn-github">
@@ -101,19 +106,3 @@
         </div>
     }
 </div>
-<script>
-    $(document).ready(function () {
-        $(".btn-facebook").click(function () {
-            @*$.ajax({
-                // edit to add steve's suggestion.
-                //url: "/ControllerName/ActionName",
-                url: '@Url.Action("FacebookIstek", "PostUI")',
-                success: function (data) {
-                    // your data could be a View or Json or what ever you returned in your action method
-                    // parse your data here
-                    console.log(data);
-                }
-            });*@
-        });
-    });
-</script>
