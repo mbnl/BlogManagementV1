@@ -683,6 +683,8 @@
     <Content Include="ContentUser\css\bootstrap-social.css" />
     <Content Include="ContentUser\css\hoverEffect.css" />
     <Content Include="ContentUser\js\app.js" />
+    <Content Include="Content\images\ismaildenzzz_small.png" />
+    <Content Include="Content\images\ismaildenzzz_social_large.png" />
     <Content Include="scripts\angular.min.js" />
     <Content Include="ContentUser\js\GlobalUI.js" />
     <Content Include="ContentUser\vendor\bootstrap\css\bootstrap-grid.css" />

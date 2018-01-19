@@ -3,6 +3,12 @@
     ViewBag.Title = "İsmail Deniz | " + Html.DisplayFor(x => x.Baslik);
     ViewBag.SeoKeys = Html.DisplayFor(x => x.SeoAnahtarlari);
     ViewBag.SeoDesc = Html.DisplayFor(x => x.SeoAciklama);
+    ViewBag.SocialTitle = Html.DisplayFor(x => x.Baslik);
+    string kisaAciklama = Html.DisplayFor(x => x.KisaAciklama).ToString().Substring(0, 200);
+    ViewBag.SocialDescription = kisaAciklama + "...";
+    ViewBag.SocialImage = string.IsNullOrEmpty(Html.DisplayFor(x => x.Resim).ToString()) == true ? "~/Content/Images/ismaildenzzz_social_large.png" : Html.DisplayFor(x => x.Resim).ToString();
+    ViewBag.SocialUrl = "http://www.ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink).ToString();
+    ViewBag.SocialType = "article";
     Layout = "~/Views/Shared/_LayoutUI.cshtml";
 }
 <style>
@@ -35,24 +41,20 @@
         @Html.Raw(HttpUtility.HtmlDecode(Model.Icerik))
     </article>
 
-    @*<div class="fb-share-button" data-href="@( "https://ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink))" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fismaildenzzz.com%2F&amp;src=sdkpreparse">Paylaş</a></div>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ismaildenzzz.com" data-text="Test Bir Deneme" data-via="ismaildenzzz" data-count="vertical">Tweet</a>*@
-
-
-    <div class="social-buttons " data-href="@( "https://ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink))" data-layout="button" data-size="large" data-mobile-iframe="true">
+    <div class="social-buttons " data-href="@( "http://ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink))" data-layout="button" data-size="large" data-mobile-iframe="true">
         <a class="btn btn-social-icon btn-facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fismaildenzzz.com%2F&amp;src=sdkpreparse">
             <span class="fa fa-facebook"></span>
         </a>
-        <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/share" data-url="http://ismaildenzzz.com" data-text="Test Bir Deneme" data-via="ismaildenzzz" data-count="vertical">
+        <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/share" data-url="@( "http://ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink))" data-text="@Html.DisplayFor(x => x.KisaAciklama).ToString().Substring(0,140)" data-via="ismaildenzzz.com" data-size="large" data-count="none">
             <span class="fa fa-twitter"></span>
         </a>
-        <a class="btn btn-social-icon btn-github">
+        <a class="btn btn-social-icon btn-github" href="https://github.com/ismaildenzzz" target="_blank">
             <span class="fa fa-github"></span>
         </a>
-        <a class="btn btn-social-icon btn-google">
+        <a class="btn btn-social-icon btn-google" href="@( "https://plus.google.com/share?url="+ViewBag.SocialUrl )" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
             <span class="fa fa-google"></span>
         </a>
-        <a class="btn btn-social-icon btn-linkedin">
+        <a class="btn btn-social-icon btn-linkedin" href="@( "http://www.linkedin.com/shareArticle?mini=true&url="+ViewBag.SocialUrl+"&title="+ViewBag.SocialTitle+"")  target="_blank">
             <span class="fa fa-linkedin"></span>
         </a>
     </div>

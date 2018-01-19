@@ -40,7 +40,6 @@ namespace ismaildenzzz.Admin.Controllers
         public ActionResult Detay(string SeoLink)
         {
             #region ORTAK
-            ViewBag.Etikets = _etiketRepository.GetAll();
             ViewBag.Kategoris = _kategoriRepository.GetAll();
             List<int> countByCategoryID = new List<int>();
             foreach (var item in _kategoriRepository.GetAll())

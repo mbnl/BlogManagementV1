@@ -44,44 +44,6 @@
         </div>
     </div>
 
-    <!-- Categories Widget -->
-    <div class="card my-4">
-        <h5 class="card-header">Etiket Bulutu</h5>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="tags">
-                        <ul>
-                            @foreach (var item in ViewBag.Etikets)
-                            {
-                                <li><a href="/etiket/@item.EtiketLink" class="smallest" title="Tag: @item.EtiketAdi">@item.EtiketAdi</a> </li>
-                            }
-                        </ul>
-                    </div>
-
-                    @*<div class="tagcloud03">
-                            <ul>
-                                @foreach (var item in ViewBag.Etikets)
-                                {
-                                    <li>
-                                        <a href="/etiket/@item.EtiketLink">@item.EtiketAdi<span>@ViewBag.EtiketPostSayilari[j]</span></a>
-                                    </li>
-                                    j++;
-                                }
-
-                            </ul>
-                        </div>*@
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-
-
     <!-- Side Widget
     <div class="card my-4">
         <h5 class="card-header">Biz Kimiz?</h5>
