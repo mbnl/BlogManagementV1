@@ -9,6 +9,13 @@
     ViewBag.SocialImage = string.IsNullOrEmpty(Html.DisplayFor(x => x.Resim).ToString()) == true ? "~/Content/Images/ismaildenzzz_social_large.png" : Html.DisplayFor(x => x.Resim).ToString();
     ViewBag.SocialUrl = "http://www.ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink).ToString();
     ViewBag.SocialType = "article";
+    ViewBag.SocialPublishedTime = Html.DisplayFor(x => x.YuklenmeTarihi);
+    string tags="";
+    foreach (var item in Model.Etikets)
+    {
+        tags = tags + item.EtiketAdi.ToString()+",";
+    }
+    ViewBag.SocialArticleTags = tags.Substring(0, tags.Length - 1);
     Layout = "~/Views/Shared/_LayoutUI.cshtml";
 }
 <style>
@@ -42,10 +49,10 @@
     </article>
 
     <div class="social-buttons " data-href="@( "http://ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink))" data-layout="button" data-size="large" data-mobile-iframe="true">
-        <a class="btn btn-social-icon btn-facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fismaildenzzz.com%2F&amp;src=sdkpreparse">
+        <a class="btn btn-social-icon btn-facebook" target="_blank" href="@( "https://www.facebook.com/sharer/sharer.php?u="+ViewBag.SocialUrl+"&amp;src=sdkpreparse" )" >
             <span class="fa fa-facebook"></span>
         </a>
-        <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/share" data-url="@( "http://ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink))" data-text="@Html.DisplayFor(x => x.KisaAciklama).ToString().Substring(0,140)" data-via="ismaildenzzz.com" data-size="large" data-count="none">
+        <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/share" data-url="@( "http://ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink))" data-text="@Html.DisplayFor(x => x.KisaAciklama).ToString().Substring(0,100)" data-via="ismaildenzzz.com" data-size="large" data-count="none">
             <span class="fa fa-twitter"></span>
         </a>
         <a class="btn btn-social-icon btn-github" href="https://github.com/ismaildenzzz" target="_blank">
