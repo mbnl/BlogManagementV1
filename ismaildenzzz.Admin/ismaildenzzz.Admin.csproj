@@ -65,10 +65,6 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
-      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -83,14 +79,6 @@
     </Reference>
     <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -126,6 +114,7 @@
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -745,8 +734,6 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\js\notify.min.js" />
-    <Content Include="scripts\ai.0.22.9-build00167.js" />
-    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="ckeditor\CHANGES.md" />
     <Content Include="ckeditor\LICENSE.md" />
     <Content Include="ckeditor\plugins\scayt\CHANGELOG.md" />
@@ -791,6 +778,7 @@
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\YorumController.cs" />
     <Compile Include="CustomFilter\LoginFilter.cs" />
+    <Compile Include="CustomFilter\ResponseCompressFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -859,7 +847,6 @@
     <Content Include="Views\PostUI\Detay.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <None Include="Properties\PublishProfiles\ismaildenzzz.pubxml" />
-    <Content Include="Views\Shared\EditorTemplates\tinymce_jquery_full.cshtml" />
     <Content Include="Views\Blog\Detay.cshtml" />
     <Content Include="Views\Blog\Duzenle.cshtml" />
     <None Include="Web.Debug.config">

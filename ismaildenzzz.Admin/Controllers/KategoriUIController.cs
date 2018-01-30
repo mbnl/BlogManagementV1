@@ -1,13 +1,8 @@
-﻿using ismaildenzzz.Core.Infrastructure;
-using ismaildenzzz.Data.DataContext;
+﻿using ismaildenzzz.Admin.CustomFilter;
+using ismaildenzzz.Core.Infrastructure;
 using ismaildenzzz.Data.Model;
-using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ismaildenzzz.Admin.Controllers
@@ -31,6 +26,7 @@ namespace ismaildenzzz.Admin.Controllers
 
         [HttpGet]
         [Route("{KategoriLink}")]
+        [ResponseCompressFilter]
         public ActionResult Detay(string KategoriLink)
         {
             #region ORTAK

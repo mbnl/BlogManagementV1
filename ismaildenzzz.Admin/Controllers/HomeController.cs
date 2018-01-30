@@ -1,20 +1,15 @@
 ﻿using ismaildenzzz.Admin.CustomFilter;
 using ismaildenzzz.Admin.Models;
 using ismaildenzzz.Core.Infrastructure;
-using ismaildenzzz.Data.DataContext;
 using ismaildenzzz.Data.Model;
 using PagedList;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Net.Mime;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
 
@@ -36,6 +31,7 @@ namespace ismaildenzzz.Admin.Controllers
         #endregion
 
         [HttpGet]
+        [ResponseCompressFilter]
         public ActionResult Index(string page)
         {
             int pageSize = 12;
@@ -58,19 +54,47 @@ namespace ismaildenzzz.Admin.Controllers
             }
             ViewBag.KategoriPostSayilari = countByCategoryID;
             #endregion
-            IPagedList<Blog> blogList = _blogRepository.GetAll().ToPagedList(pageIndex, pageSize);
+            IPagedList<Blog> blogList = _blogRepository.GetAll().OrderByDescending(x => x.ID).ToPagedList(pageIndex, pageSize);
             ViewBag.BirSayfadakiPostlar = blogList;
             return View(blogList);
         }
 
-        [Route("sitemap.xml")]
+        [Route("robots.txt"), OutputCache(Duration = 86400)]
+        public ContentResult RobotsText()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine("user-agent: Googlebot");
+            stringBuilder.AppendLine("disallow: /Admin/");
+            stringBuilder.AppendLine("disallow: /Account/");
+            stringBuilder.AppendLine("disallow: /Blog/");
+            stringBuilder.AppendLine("disallow: /Etiket/");
+            stringBuilder.AppendLine("disallow: /KategoriAdmin/");
+            stringBuilder.AppendLine("disallow: /Yorum/");
+            stringBuilder.AppendLine("allow: /");
+            stringBuilder.AppendLine("allow: /post/");
+            stringBuilder.AppendLine("allow: /kategori/");
+            stringBuilder.AppendLine("allow: /etiket/");
+            stringBuilder.AppendLine("allow: /hakkimda/");
+            stringBuilder.AppendLine("allow: /iletisim/");
+
+            stringBuilder.AppendLine("user-agent: Googlebot-Image");
+            stringBuilder.AppendLine("disallow: /Content/images/");
+
+            stringBuilder.Append("sitemap: ");
+            stringBuilder.AppendLine("http://ismaildenzzz.com/sitemap.xml");
+
+            return this.Content(stringBuilder.ToString(), "text/plain", Encoding.UTF8);
+        }
+
+        [Route("sitemap.xml"), OutputCache(Duration = 86400)]
         public ActionResult SitemapXml()
         {
             var sitemapNodes = GetSitemapNodes(this.Url);
             string xml = GetSitemapDocument(sitemapNodes);
             return this.Content(xml, MediaTypeNames.Text.Xml, Encoding.UTF8);
         }
-
+        [ResponseCompressFilter]
         public IReadOnlyCollection<Models.SiteMapNode> GetSitemapNodes(UrlHelper urlHelper)
         {
             List<Models.SiteMapNode> nodes = new List<Models.SiteMapNode>();
@@ -129,7 +153,7 @@ namespace ismaildenzzz.Admin.Controllers
 
             return nodes;
         }
-
+        [ResponseCompressFilter]
         public string GetSitemapDocument(IEnumerable<Models.SiteMapNode> sitemapNodes)
         {
             XNamespace xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9";

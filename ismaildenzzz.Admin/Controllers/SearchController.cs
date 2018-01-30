@@ -1,11 +1,10 @@
-﻿using ismaildenzzz.Admin.Models;
+﻿using ismaildenzzz.Admin.CustomFilter;
+using ismaildenzzz.Admin.Models;
 using ismaildenzzz.Core.Infrastructure;
 using ismaildenzzz.Data.DataContext;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ismaildenzzz.Admin.Controllers
@@ -26,6 +25,7 @@ namespace ismaildenzzz.Admin.Controllers
 
         // GET: Search
         [Route("search")]
+        [ResponseCompressFilter]
         public async Task<ViewResult> Index(string q)
         {
             var tasks = new Task[3];

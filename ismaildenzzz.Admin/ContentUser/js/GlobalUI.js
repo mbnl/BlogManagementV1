@@ -14,7 +14,7 @@
                 datatype: "Json",
                 success: function (response) {
                     if (response.Success) {
-                        swal('Başarılı!', 'Yorum Ekleme İşlemi Başarılı!', 'success');
+                        alert('Yorum Ekleme İşlemi Başarılı!');
                         setTimeout(function () {
                             $("#YorumAdSoyad").val("");
                             $("#YorumMail").val("");
@@ -23,18 +23,18 @@
                         }, 1000);
                     }
                     else {
-                        swal('Başarısız!', 'Yorum Ekleme İşlemi Başarısız!', 'error');
+                        alert('Yorum Ekleme İşlemi Başarısız!');
                     }
                 }
             });
         }
         else
         {
-            swal('Başarısız!', 'Lütfen Mailinizin doğruluğundan emin olun!', 'error');
+            alert('Lütfen Mailinizin doğruluğundan emin olun!');
         }
     }
     else {
-        swal('Başarısız!', 'Lütfen bilgileri eksiksiz doldurunuz!', 'error');
+        alert('Lütfen bilgileri eksiksiz doldurunuz!');
     }
 }
 

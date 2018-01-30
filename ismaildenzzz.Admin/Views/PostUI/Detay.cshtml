@@ -4,9 +4,9 @@
     ViewBag.SeoKeys = Html.DisplayFor(x => x.SeoAnahtarlari);
     ViewBag.SeoDesc = Html.DisplayFor(x => x.SeoAciklama);
     ViewBag.SocialTitle = Html.DisplayFor(x => x.Baslik);
-    string kisaAciklama = Html.DisplayFor(x => x.KisaAciklama).ToString().Substring(0, 200);
+    string kisaAciklama = Html.DisplayFor(x => x.KisaAciklama).ToString();
     ViewBag.SocialDescription = kisaAciklama + "...";
-    ViewBag.SocialImage = string.IsNullOrEmpty(Html.DisplayFor(x => x.Resim).ToString()) == true ? "~/Content/Images/ismaildenzzz_social_large.png" : Html.DisplayFor(x => x.Resim).ToString();
+    ViewBag.SocialImage = string.IsNullOrEmpty(Html.DisplayFor(x => x.Resim).ToString()) == true ? "/Content/images/ismaildenzzz_social_large.png" : Html.DisplayFor(x => x.Resim).ToString();
     ViewBag.SocialUrl = "http://www.ismaildenzzz.com/post/" + Html.DisplayFor(x => x.SeoLink).ToString();
     ViewBag.SocialType = "article";
     ViewBag.SocialPublishedTime = Html.DisplayFor(x => x.YuklenmeTarihi);

@@ -1,12 +1,7 @@
-﻿using Facebook;
+﻿using ismaildenzzz.Admin.CustomFilter;
 using ismaildenzzz.Core.Infrastructure;
-using ismaildenzzz.Data.DataContext;
 using ismaildenzzz.Data.Model;
-using System;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ismaildenzzz.Admin.Controllers
@@ -37,6 +32,8 @@ namespace ismaildenzzz.Admin.Controllers
 
         [HttpGet]
         [Route("{SeoLink}")]
+        [ResponseCompressFilter]
+        [OutputCache(Duration = 3600, VaryByParam = "SeoLink")]
         public ActionResult Detay(string SeoLink)
         {
             #region ORTAK
@@ -55,13 +52,5 @@ namespace ismaildenzzz.Admin.Controllers
             _blogRepository.Save();
             return View(blogModel);
         }
-        [HttpPost]
-        public JsonResult LoadData(string SeoLink)
-        {
-            Blog blogModel = _blogRepository.Get(x => x.SeoLink == SeoLink);
-            var Icerik = blogModel.Icerik;
-            return Json(Icerik);
-        }
-        
     }
 }
