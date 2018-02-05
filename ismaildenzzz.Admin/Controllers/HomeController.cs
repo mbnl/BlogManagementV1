@@ -64,24 +64,11 @@ namespace ismaildenzzz.Admin.Controllers
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.AppendLine("user-agent: Googlebot");
-            stringBuilder.AppendLine("disallow: /Admin/");
-            stringBuilder.AppendLine("disallow: /Account/");
-            stringBuilder.AppendLine("disallow: /Blog/");
-            stringBuilder.AppendLine("disallow: /Etiket/");
-            stringBuilder.AppendLine("disallow: /KategoriAdmin/");
-            stringBuilder.AppendLine("disallow: /Yorum/");
-            stringBuilder.AppendLine("allow: /");
-            stringBuilder.AppendLine("allow: /post/");
-            stringBuilder.AppendLine("allow: /kategori/");
-            stringBuilder.AppendLine("allow: /etiket/");
-            stringBuilder.AppendLine("allow: /hakkimda/");
-            stringBuilder.AppendLine("allow: /iletisim/");
+            stringBuilder.AppendLine("User-agent: *");
+            stringBuilder.AppendLine("Disallow: /Admin/");
+            stringBuilder.AppendLine("Disallow: /Account/");
 
-            stringBuilder.AppendLine("user-agent: Googlebot-Image");
-            stringBuilder.AppendLine("disallow: /Content/images/");
-
-            stringBuilder.Append("sitemap: ");
+            stringBuilder.Append("Sitemap: ");
             stringBuilder.AppendLine("http://ismaildenzzz.com/sitemap.xml");
 
             return this.Content(stringBuilder.ToString(), "text/plain", Encoding.UTF8);
@@ -103,19 +90,19 @@ namespace ismaildenzzz.Admin.Controllers
                 new Models.SiteMapNode()
                 {
                     Url = "http://ismaildenzzz.com/iletisim",
-                    Priority = 1
+                    Priority = 0.5
                 });
             nodes.Add(
                new Models.SiteMapNode()
                {
                    Url = "http://ismaildenzzz.com/hakkimda",
-                   Priority = 0.9
+                   Priority = 0.5
                });
             nodes.Add(
                new Models.SiteMapNode()
                {
                    Url = "http://ismaildenzzz.com/",
-                   Priority = 0.9
+                   Priority = 1.0
                });
 
             foreach (string postLink in _blogRepository.GetAll().Select(x => x.SeoLink))
@@ -124,8 +111,8 @@ namespace ismaildenzzz.Admin.Controllers
                    new Models.SiteMapNode()
                    {
                        Url = "http://ismaildenzzz.com/post/"+postLink,
-                       Frequency = SitemapFrequency.Daily,
-                       Priority = 0.8
+                       Frequency = SitemapFrequency.Weekly,
+                       Priority = 0.9
                    });
             }
 
@@ -135,8 +122,8 @@ namespace ismaildenzzz.Admin.Controllers
                    new Models.SiteMapNode()
                    {
                        Url = "http://ismaildenzzz.com/etiket/" + etiketLink,
-                       Frequency = SitemapFrequency.Daily,
-                       Priority = 0.8
+                       Frequency = SitemapFrequency.Monthly,
+                       Priority = 0.6
                    });
             }
 
@@ -146,8 +133,8 @@ namespace ismaildenzzz.Admin.Controllers
                    new Models.SiteMapNode()
                    {
                        Url = "http://ismaildenzzz.com/kategori/" + kategoriLink,
-                       Frequency = SitemapFrequency.Daily,
-                       Priority = 0.8
+                       Frequency = SitemapFrequency.Monthly,
+                       Priority = 0.6
                    });
             }
 

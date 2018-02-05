@@ -33,7 +33,6 @@ namespace ismaildenzzz.Admin.Controllers
         [HttpGet]
         [Route("{SeoLink}")]
         [ResponseCompressFilter]
-        [OutputCache(Duration = 3600, VaryByParam = "SeoLink")]
         public ActionResult Detay(string SeoLink)
         {
             #region ORTAK
